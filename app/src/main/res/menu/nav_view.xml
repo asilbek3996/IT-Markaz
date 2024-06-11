@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/actionHome"
+        android:icon="@drawable/home"
+        android:title="@string/home"/>
+    <item android:id="@+id/actionFavorite"
+        android:icon="@drawable/favorite"
+        android:title="@string/favorite"/>
+    <item android:id="@+id/actionGame"
+        android:icon="@drawable/game_svgrepo_com"
+        android:title="Quiz"/>
+    <item android:id="@+id/actionProfile"
+        android:icon="@drawable/user"
+        android:title="@string/profile"/>
+</menu>

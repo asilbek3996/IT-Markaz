@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#00000000">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        app:contentPadding="16dp"
+        app:cardBackgroundColor="@color/white"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCheck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Siz IT Center Dang'ara filliali o'quvchisimisiz"
+                android:layout_marginTop="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end|center"
+                android:layout_marginTop="16dp">
+                <TextView
+                    android:id="@+id/tvNo"
+                    android:layout_width="35dp"
+                    android:layout_height="20dp"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginRight="8dp"
+                    android:text="Yo'q"/>
+                <TextView
+                    android:id="@+id/tvYes"
+                    android:layout_width="35dp"
+                    android:layout_height="20dp"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textColor="@color/light_green"
+                    android:textStyle="bold"
+                    android:text="Ha"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

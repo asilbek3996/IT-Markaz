@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">IT Center</string>
+    <string name="profile">Hisob</string>
+    <string name="settings">Sozlamalar</string>
+    <string name="favorite">Tanlanganlar</string>
+    <string name="home">Asosiy</string>
+    <string name="about">Ushbu ilova IT Center o\'quvchilari uchun ishlab chiqildi. Usbu ilova yordamida o\'quvchilar o\'tilgan mavzuga doir videolar ko\'rib va bilimlarini mustahkamlash uchun testlar yechib borishadi.</string>
+    <string name="all">barchasi</string>
+    <string name="category">Dasturlash tillari</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="python_groups">Python Groups</string>
+    <string name="cpp_groups">C++ Groups</string>
+    <string name="java_groups">Java Groups</string>
+    <string name="group"> Guruh</string>
+    <string name="kotlin_groups">Kotlin Groups</string>
+    <string name="android_groups">Android Groups</string>
+    <string name="scratch_groups">Scratch Groups</string>
+    <string name="frontend_groups">Frontend Groups</string>
+    <string name="literacy_groups">Literacy Groups</string>
+    <string name="kotlin1">Kotlin-oʻzaro platformali, statik tarzda yozilgan, tip xulosasiga ega umumiy maqsadli dasturlash tili. Kotlin Java bilan toʻliq oʻzaro ishlash uchun moʻljallangan va Kotlin standart kutubxonasining JVM versiyasi Java sinf kutubxonasiga bogʻliq[2], lekin turdagi xulosalar uning sintaksisini yanada ixcham boʻlishiga imkon beradi. Kotlin asosan JVMni maqsad qilib oladi, lekin JavaScriptni (masalan, React[3] dan foydalanadigan frontend web-ilovalar uchun) yoki LLVM orqali mahalliy kodni (masalan, Android ilovalari bilan biznes mantiqini almashuvchi mahalliy iOS ilovalari uchun) kompilyatsiya qiladi[4]. Tilni rivojlantirish xarajatlari JetBrains tomonidan qoplanadi, Kotlin fondi esa Kotlin savdo belgisini himoya qiladi</string>
+    <string name="parolingizni_kiriting">Parolingizni kiriting</string>
+</resources>
