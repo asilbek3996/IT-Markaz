@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.itcenter"
+    namespace = "uz.fergana.itcenter"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.itcenter"
+        applicationId = "uz.fergana.itcenter"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
