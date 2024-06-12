@@ -20,7 +20,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.fergana.itcenter.fragment.*
 import com.orhanobut.hawk.Hawk
 import org.greenrobot.eventbus.EventBus
 import uz.fergana.itcenter.R
