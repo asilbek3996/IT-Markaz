@@ -92,6 +92,7 @@
                         android:id="@+id/refreshMain"
                         android:layout_width="24dp"
                         app:tint="@color/white"
+                        android:contentDescription="Refresh"
                         android:layout_height="24dp"
                         android:src="@drawable/refresh" />
                     <ProgressBar

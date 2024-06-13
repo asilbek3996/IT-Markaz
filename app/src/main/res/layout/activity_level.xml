@@ -78,6 +78,7 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
+                        android:contentDescription="Back"
                         android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
                         app:tint="@color/white" />
                 </LinearLayout>
