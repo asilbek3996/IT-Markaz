@@ -32,6 +32,7 @@
             android:orientation="horizontal">
 
             <FrameLayout
+                android:id="@+id/fmNotification"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content">
                 <androidx.cardview.widget.CardView
@@ -53,20 +54,14 @@
                         android:textSize="6sp"
                         android:textColor="@color/white"/>
                 </androidx.cardview.widget.CardView>
-                <ImageView
+                <ImageButton
                     android:id="@+id/notification"
                     android:layout_width="24dp"
                     app:tint="@color/white"
                     android:layout_height="24dp"
+                    android:contentDescription="Notification"
                     android:layout_gravity="center"
                     android:src="@drawable/notification" />
-                <ImageView
-                    android:id="@+id/crown1"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/crown_svgrepo_com"
-                    android:visibility="gone"
-                    app:tint="@color/white" />
 
             </FrameLayout>
 
@@ -86,25 +81,6 @@
             <FrameLayout
                 android:layout_width="35dp"
                 android:layout_height="wrap_content">
-                <ImageView
-                    android:id="@+id/favoriteRemove"
-                    android:layout_width="24dp"
-                    app:tint="@color/white"
-                    android:visibility="gone"
-                    android:layout_height="24dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/heart" />
-                <ImageView
-                    android:id="@+id/crown2"
-                    android:layout_width="24dp"
-                    app:tint="@color/white"
-                    android:visibility="gone"
-                    android:layout_height="24dp"
-                    android:src="@drawable/crown_svgrepo_com"
-                    android:clickable="true"
-                    android:layout_gravity="center_horizontal"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:focusable="true" />
                 <LinearLayout
                     android:id="@+id/refreshDialog"
                     android:layout_width="wrap_content"
@@ -165,7 +141,7 @@
                 android:background="@drawable/appcompat_buttonn"
                 app:itemIconTint="@drawable/bottom_nav_view_item"
                 app:itemRippleColor="@color/light_green"
-                app:labelVisibilityMode="labeled"
+                app:labelVisibilityMode="unlabeled"
                 app:itemTextColor="@color/black"
                 app:menu="@menu/nav_view" />
         </LinearLayout>

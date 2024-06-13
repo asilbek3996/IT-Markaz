@@ -42,6 +42,7 @@
                          android:layout_width="24dp"
                          android:layout_height="24dp"
                          android:layout_gravity="start"
+                         android:contentDescription="Back"
                          android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
                          app:tint="@color/white" />
 
@@ -63,31 +64,12 @@
     android:id="@+id/allRead"
     android:layout_width="50dp"
     android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/ntRead"
-        android:layout_width="11dp"
-        android:layout_height="11dp"
-        app:cardCornerRadius="5.5dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:visibility="gone"
-        app:cardBackgroundColor="@color/red"
-        android:layout_gravity="center_horizontal">
-        <TextView
-            android:id="@+id/tvNotification"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:textSize="6sp"
-            android:textColor="@color/white"/>
-    </androidx.cardview.widget.CardView>
     <ImageView
         android:layout_width="24dp"
         app:tint="@color/white"
         android:layout_height="24dp"
         android:layout_gravity="center"
-        android:src="@drawable/notification" />
+        android:scaleType="centerCrop" />
 </FrameLayout>
 
              </LinearLayout>

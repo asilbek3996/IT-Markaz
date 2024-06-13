@@ -19,7 +19,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import uz.fergana.itcenter.ShowProgress
 import uz.fergana.itcenter.activity.AllCategoryActivity
-import uz.fergana.itcenter.activity.CheckActivity
 import uz.fergana.itcenter.activity.LevelActivity
 import uz.fergana.itcenter.adapter.ImageAdapter
 import uz.fergana.itcenter.adapter.TopStudentAdapter
@@ -69,28 +68,6 @@ class HomeFragment : Fragment() {
             (activity as? ShowProgress.View)?.refresh()
         }
 
-
-        setUpTransformer()
-        viewModel.adsData.observe(requireActivity(), Observer {
-
-            binding.viewPager.adapter = ImageAdapter(it, binding.viewPager)
-            binding.viewPager.offscreenPageLimit = 3
-            binding.viewPager.clipToPadding = false
-            binding.viewPager.clipChildren = false
-            binding.viewPager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-        })
-        binding.viewPager.registerOnPageChangeCallback(object :
-            ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                handler.removeCallbacks(runnable)
-                handler.postDelayed(runnable, 2000)
-            }
-        })
-        viewModel.categoriesData.observe(requireActivity(), Observer {
-            categories(it)
-        })
-
         binding.tvAll.setOnClickListener {
             startActivity(Intent(requireContext(), AllCategoryActivity::class.java))
         }
@@ -113,26 +90,7 @@ class HomeFragment : Fragment() {
             }
             startActivity(intent)
         }
-        var a = 0
         viewModel.studentData.observe(requireActivity(), Observer {
-            if (it != null && it.isNotEmpty()) {
-                val pref = PrefUtils(requireContext())
-                var idRaqam = pref.getID()
-                var user = it.filter { it.id == idRaqam }
-                if (user.isEmpty()) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Sizning ID raqamingiz serverda topilmadi.222222222",
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
-                    val pref = PrefUtils(requireContext())
-                    pref.clear()
-                    startActivity(Intent(requireActivity(), CheckActivity::class.java))
-                    requireActivity().finish()
-                }
-                topTest(it)
-
                 viewModel.shimmer.observe(requireActivity()) { status ->
                     when (status) {
                         0 -> {
@@ -143,8 +101,8 @@ class HomeFragment : Fragment() {
                         1 -> {
                             Handler().postDelayed({
                                 binding.swipe.visibility = View.VISIBLE
-                                binding.main.visibility = View.VISIBLE
                                 binding.shimmerLayout.visibility = View.GONE
+                                topTest(it)
                             }, 1000)
                         }
 
@@ -155,9 +113,28 @@ class HomeFragment : Fragment() {
                         }
                     }
                 }
-            }else{
-                loadData()
+        })
+
+
+        setUpTransformer()
+        viewModel.adsData.observe(requireActivity(), Observer {
+
+            binding.viewPager.adapter = ImageAdapter(it, binding.viewPager)
+            binding.viewPager.offscreenPageLimit = 3
+            binding.viewPager.clipToPadding = false
+            binding.viewPager.clipChildren = false
+            binding.viewPager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+        })
+        binding.viewPager.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                handler.removeCallbacks(runnable)
+                handler.postDelayed(runnable, 2000)
             }
+        })
+        viewModel.categoriesData.observe(requireActivity(), Observer {
+            categories(it)
         })
     }
 

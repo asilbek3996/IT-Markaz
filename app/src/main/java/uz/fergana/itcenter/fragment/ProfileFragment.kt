@@ -2,20 +2,27 @@ package uz.fergana.itcenter.fragment
 
 import android.app.AlertDialog
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import uz.fergana.itcenter.R
+import uz.fergana.itcenter.ShowProgress
 import uz.fergana.itcenter.activity.CheckActivity
+import uz.fergana.itcenter.activity.MainActivity
+import uz.fergana.itcenter.activity.RegisterActivity
 import uz.fergana.itcenter.activity.SettingsActivity
 import uz.fergana.itcenter.databinding.FragmentProfileBinding
 import uz.fergana.itcenter.model.viewmodel.MainViewModel
@@ -77,40 +84,101 @@ class ProfileFragment : Fragment() {
         binding.logOut.setOnClickListener {
             showAlertDialog()
         }
+
+        binding.btnLogin.setOnClickListener {
+            loginUser()
+            viewModel.getAllStudent()
+        }
         viewModel.studentData.observe(requireActivity()) {
-            if (it != null && it.isNotEmpty()) {
-                if (it.isNotEmpty()) {
                     val pref = PrefUtils(requireContext())
                     var idRaqami = pref.getID()
                     val requestOptions = RequestOptions()
-                        .placeholder(R.drawable.user) // Standart rasm
+                        .placeholder(R.drawable.user)
                         .error(R.drawable.user)
-                    for (items in it) {
-                        Glide.with(binding.img).load(items.userPhoto).apply(requestOptions)
-                            .into(binding.img)
-                        binding.tvFullName.text = items.fullName
-                        binding.tvID.text = idRaqami.toString()
+                    var user = it.filter { it.id == idRaqami }
+                    if (idRaqami!=0){
+                        if (user.isEmpty()) {
+                            binding.logInPage.visibility = View.VISIBLE
+                            binding.profile.visibility = View.GONE
+                        }else{
+                            for (items in it) {
+                                if (items.id==idRaqami) {
+                                    binding.profile.visibility = View.VISIBLE
+                                    binding.logInPage.visibility = View.GONE
+
+                                    Glide.with(binding.img).load(items.userPhoto)
+                                        .apply(requestOptions)
+                                        .into(binding.img)
+                                    binding.tvFullName.text = items.fullName
+                                    binding.tvID.text = idRaqami.toString()
+                                    break
+                                }else{
+                                    binding.logInPage.visibility = View.VISIBLE
+                                    binding.profile.visibility = View.GONE
+                                    continue
+                                }
+                            }
+                        }
+                    }else{
+                        binding.logInPage.visibility = View.VISIBLE
+                        binding.profile.visibility = View.GONE
                     }
-                } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Sizning ID raqamingiz serverda topilmadi.",
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
-                    val pref = PrefUtils(requireContext())
-                    pref.clear()
-                    startActivity(Intent(requireActivity(), CheckActivity::class.java))
-                    requireActivity().finish()
-                }
-            } else {
-                loadData()
-            }
         }
     }
 
     fun loadData() {
         viewModel.getAllStudents()
+    }
+
+
+    fun loginUser() {
+        val email: String = binding.etEmail.text.toString()
+        if (email=="") {
+            binding.etEmail.error = "ID is invalid "
+        }else {
+            changeInProgress(true)
+            Handler().postDelayed({
+                login(email)
+            }, 1500)
+        }
+    }
+    fun login(email: String?){
+        changeInProgress(true)
+        (activity as? ShowProgress.View)?.again()
+        viewModel.userData.observe(requireActivity(), Observer {
+            for (student in it){
+                if (student.id.toString() == email){
+                    changeInProgress(false)
+                    val pref = PrefUtils(requireActivity())
+                    validateDate(email)
+                    pref.setStudent(student)
+                    validateDate("0")
+                    loadData()
+                    binding.profile.visibility = View.VISIBLE
+                    binding.logInPage.visibility = View.GONE
+                    binding.etEmail.text.clear()
+                }else{
+                    validateDate(null)
+                    changeInProgress(false)
+                }
+            }
+        })
+    }
+    fun validateDate(email: String?): Boolean {
+        if (email==null) {
+            binding.etEmail.error = "ID raqam xato"
+            return false
+        }
+        return true
+    }
+    fun changeInProgress(inProgress: Boolean) {
+        if (inProgress) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.btnLogin.visibility = View.GONE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.btnLogin.visibility = View.VISIBLE
+        }
     }
     private fun showAlertDialog() {
         val alertDialogBuilder = AlertDialog.Builder(requireActivity())
@@ -118,9 +186,11 @@ class ProfileFragment : Fragment() {
         alertDialogBuilder.setPositiveButton("Ha", DialogInterface.OnClickListener { dialog, which ->
             val pref = PrefUtils(requireContext())
             pref.clear()
-            startActivity(Intent(requireActivity(), CheckActivity::class.java))
-            requireActivity().finish()
-            dialog.dismiss()
+            binding.profile.visibility = View.GONE
+            binding.logInPage.visibility = View.VISIBLE
+            (activity as? ShowProgress.View)?.again()
+            loadData()
+        dialog.dismiss()
         })
         alertDialogBuilder.setNegativeButton("Yo'q", DialogInterface.OnClickListener { dialog, which ->
             dialog.dismiss()

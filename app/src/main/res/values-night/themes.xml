@@ -6,5 +6,6 @@
         <item name="colorPrimary">@color/light_green</item>
         <item name="colorPrimaryDark">@color/light_green</item>
         <item name="colorAccent">@color/light_green</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>

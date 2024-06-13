@@ -21,7 +21,7 @@ class CheckActivity : AppCompatActivity() {
         binding = ActivityCheckBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        showAlertDialog()
+//        showAlertDialog()
         binding.btnLogin.setOnClickListener {
                 loginUser()
         }

@@ -70,7 +70,7 @@ class DarslarActivity : AppCompatActivity() {
                     return true
                 }
             })
-        } else if (group == "x") {
+        } else if (group==null) {
             var txt = "Siz hech qaysi guruhda o'qimaysiz"
             showAlertDialog(txt, message!!)
         } else {

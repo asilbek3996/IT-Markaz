@@ -66,7 +66,7 @@ class PrefUtils(context: Context) {
     }
 
     fun getID(): Int {
-        return sharedPreferences.getInt(Constants.ID, -1)
+        return sharedPreferences.getInt(Constants.ID, 0)
     }
 
     fun get_ID(): String? {

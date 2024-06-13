@@ -12,11 +12,11 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/it_center_logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/it_center_logo"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ITCenter"
+        android:theme="@style/Base.Theme.ITCenter"
         tools:targetApi="31">
 
         <service android:name=".NotificationService" android:foregroundServiceType="dataSync" />

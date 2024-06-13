@@ -29,7 +29,6 @@ class NotificationsActivity : AppCompatActivity() {
         }
         NotificationManager.notificationsLiveData.observe(this, Observer { notifications ->
             notifications?.let {
-                checkNotification()
                 loadAdapter(it)
             }
         })
@@ -40,8 +39,6 @@ class NotificationsActivity : AppCompatActivity() {
                 ) != PackageManager.PERMISSION_GRANTED) {
                 // Ruxsat so'rash
                 requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }else{
-                checkNotification()
             }
         }
     }
@@ -50,30 +47,6 @@ class NotificationsActivity : AppCompatActivity() {
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted) {
-            checkNotification()
-        }
-    }
-    fun checkNotification(){
-        var a = allNotification()
-        var check = 0
-        var check2 = 0
-        for (i in a){
-            if (!i.isRead){
-                check++
-            }else{
-                check2++
-            }
-        }
-        if (check>0) {
-            binding.ntRead.visibility = View.VISIBLE
-
-            if (check < 100) {
-                binding.tvNotification.text = check.toString()
-            } else {
-                binding.tvNotification.text = "+99"
-            }
-        }else{
-            binding.ntRead.visibility = View.GONE
         }
     }
     private fun allNotification(): ArrayList<Notification> {
@@ -83,7 +56,6 @@ class NotificationsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         loadAdapter()
-        checkNotification()
     }
 
     fun loadAdapter(it: ArrayList<Notification> = allNotification()){

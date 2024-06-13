@@ -7,10 +7,12 @@
     android:background="@drawable/background22"
     tools:context=".fragment.ProfileFragment">
         <LinearLayout
+            android:id="@+id/profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="75dp"
             android:layout_marginTop="80dp"
+            android:visibility="gone"
             android:orientation="vertical">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img"
@@ -226,4 +228,81 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+    <FrameLayout
+        android:id="@+id/logInPage"
+        android:background="#00FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="75dp"
+        android:layout_marginTop="55dp"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:background="#00000000"
+            android:id="@+id/linear_layout">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00000000">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:orientation="vertical"
+                    android:padding="32dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sizning ID raqamingiz"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:ems="10"
+                        android:textSize="18sp"
+                        android:padding="12dp"
+                        android:layout_marginTop="12dp"
+                        android:textColor="#474747"
+                        android:inputType="numberSigned"
+                        android:background="@drawable/edit_text_background"
+                        android:hint="ID raqamingizni kiriting" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="KIRISH"
+                        android:textColor="@color/white"
+                        style="@android:style/Widget.Button"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="32dp"
+                        android:background="@drawable/button_background"/>
+                    <ProgressBar
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:id="@+id/progress_bar"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        android:layout_marginTop="32dp"/>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </FrameLayout>
 </FrameLayout>

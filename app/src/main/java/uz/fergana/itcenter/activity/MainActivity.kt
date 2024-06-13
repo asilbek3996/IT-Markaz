@@ -86,10 +86,7 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
             .commit()
 
         supportFragmentManager.beginTransaction().show(activeFragment).commit()
-        binding.refreshMain.setOnClickListener {
-            // Tugma bosilganda holatini ViewModelga uzatish
-            viewModel.setButtonClicked(true)
-        }
+
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             if (it.itemId == R.id.actionHome) {
@@ -98,61 +95,53 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
                     .commit()
                 activeFragment = homeFragment
                 binding.tvMain.text = "Asosiy"
-                binding.crown1.visibility = View.GONE
-                binding.crown2.visibility = View.GONE
                 notification.visibility = View.VISIBLE
                 binding.refreshMain.visibility = View.VISIBLE
                 binding.refreshProgressMain.visibility = View.GONE
-                binding.favoriteRemove.visibility = View.GONE
                 binding.refreshDialog.visibility = View.VISIBLE
+                binding.fmNotification.visibility = View.VISIBLE
             } else if (it.itemId == R.id.actionFavorite) {
                 supportFragmentManager.beginTransaction().hide(activeFragment)
                     .show(favoriteFragment).commit()
                 activeFragment = favoriteFragment
                 binding.tvMain.text = "Tanlanganlar"
-                binding.crown1.visibility = View.GONE
-                binding.crown2.visibility = View.GONE
                 notification.visibility = View.VISIBLE
                 binding.refreshDialog.visibility = View.GONE
-                binding.favoriteRemove.visibility = View.VISIBLE
+                binding.fmNotification.visibility = View.VISIBLE
                 favoriteFragment.updateData()
             } else if (it.itemId == R.id.actionGame) {
                 supportFragmentManager.beginTransaction().hide(activeFragment).show(quizFragment)
                     .commit()
                 activeFragment = quizFragment
-                binding.tvMain.text = "Quiz"
-                binding.crown1.visibility = View.VISIBLE
-                binding.crown2.visibility = View.VISIBLE
+                binding.tvMain.text = "O'yin"
                 notification.visibility = View.GONE
                 binding.refreshDialog.visibility = View.GONE
-                binding.favoriteRemove.visibility = View.GONE
+                binding.fmNotification.visibility = View.GONE
             } else if (it.itemId == R.id.actionProfile) {
                 supportFragmentManager.beginTransaction().hide(activeFragment).show(profileFragment)
                     .commit()
                 activeFragment = profileFragment
                 binding.tvMain.text = "Hisob"
-                binding.crown1.visibility = View.GONE
-                binding.crown2.visibility = View.GONE
                 notification.visibility = View.VISIBLE
                 binding.refreshMain.visibility = View.VISIBLE
                 binding.refreshProgressMain.visibility = View.GONE
                 binding.refreshDialog.visibility = View.VISIBLE
-                binding.favoriteRemove.visibility = View.GONE
+                binding.fmNotification.visibility = View.VISIBLE
             }
 
             true
         }
-        binding.favoriteRemove.setOnClickListener {
-            if (pref.getFavorite(Constants.favorite).isNullOrEmpty()) {
-                Toast.makeText(
-                    this,
-                    "Siz hali hech qaysi videoni tanlamadingiz",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                clearFavorite()
-            }
-        }
+//        binding.favoriteRemove.setOnClickListener {
+//            if (pref.getFavorite(Constants.favorite).isNullOrEmpty()) {
+//                Toast.makeText(
+//                    this,
+//                    "Siz hali hech qaysi videoni tanlamadingiz",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            } else {
+//                clearFavorite()
+//            }
+//        }
         viewModel.studentData.observe(this) {
             if (it != null) {
                 viewModel.insertAllDBStudents(it)
@@ -171,46 +160,6 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
         }
     }
 
-    private fun sendNotification(message: Notification) {
-        val intent = Intent(this, NotificationDetailActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            getIntExtra("notification",message.id)
-        }
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent,
-            PendingIntent.FLAG_IMMUTABLE)
-
-        val channelId = "new_message_channel_id"
-        val notificationBuilder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.it_center_logo)
-            .setContentTitle(message.title)
-            .setContentText(message.comment)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setContentIntent(pendingIntent)
-            .setAutoCancel(true)
-
-        val notificationManager = NotificationManagerCompat.from(this)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                channelId,
-                "New Message Channel",
-                NotificationManager.IMPORTANCE_HIGH
-            )
-            notificationManager.createNotificationChannel(channel)
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.POST_NOTIFICATIONS
-                ) != PackageManager.PERMISSION_GRANTED) {
-                // Ruxsat so'rash
-                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }else{
-                Toast.makeText(this, "berilgan", Toast.LENGTH_SHORT).show()
-                notificationManager.notify(0, notificationBuilder.build())
-            }
-        }
-    }
 
     override fun onResume() {
         super.onResume()
@@ -283,6 +232,12 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
 
     override fun refresh() {
         loadData()
+        profileFragment.loadData()
     }
+
+    override fun again() {
+        homeFragment.loadData()
+    }
+
 
 }
