@@ -3,14 +3,17 @@ package uz.fergana.itcenter.activity
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import uz.fergana.itcenter.R
 import uz.fergana.itcenter.adapter.DarsAdapter
 import uz.fergana.itcenter.databinding.ActivityDarslarBinding
 import uz.fergana.itcenter.model.DarslarModel
@@ -151,6 +154,15 @@ class DarslarActivity : AppCompatActivity() {
         alertDialogBuilder.setCancelable(false)
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
+        val messageTextView = alertDialog.findViewById<TextView>(android.R.id.message)
+        messageTextView?.setTextColor(Color.BLACK)
+
+        val positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
+        positiveButton?.setTextColor(Color.BLACK)
+
+        val negativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
+        negativeButton?.setTextColor(Color.BLACK)
+        alertDialog.window?.setBackgroundDrawableResource(R.color.white)
     }
 
 }

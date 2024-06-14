@@ -51,6 +51,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/clear"
+                    android:contentDescription="clear"
                     android:layout_gravity="center"/>
 
             </FrameLayout>
@@ -69,12 +70,13 @@
             <LinearLayout
                 android:id="@+id/back"
                 android:layout_width="50dp"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:orientation="horizontal"
                 android:gravity="start|center">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:contentDescription="back"
                     android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
                     app:tint="@color/white" />
             </LinearLayout>
@@ -95,13 +97,14 @@
             <LinearLayout
                 android:id="@+id/search"
                 android:layout_width="50dp"
-                android:layout_height="30dp"
+                android:layout_height="48dp"
                 android:orientation="horizontal"
                 android:gravity="end|center">
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/search"
+                    android:contentDescription="search"
                     app:tint="@color/white" />
             </LinearLayout>
         </LinearLayout>

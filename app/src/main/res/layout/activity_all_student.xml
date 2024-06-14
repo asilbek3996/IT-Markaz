@@ -50,6 +50,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/clear"
+                    android:contentDescription="Clear"
                     android:layout_gravity="center"/>
 
             </FrameLayout>
@@ -74,6 +75,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:contentDescription="Back"
                     android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
                     app:tint="@color/white" />
             </LinearLayout>
@@ -100,6 +102,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:contentDescription="search"
                     android:src="@drawable/search"
                     app:tint="@color/white" />
             </LinearLayout>

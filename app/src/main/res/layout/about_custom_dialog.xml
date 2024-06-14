@@ -11,6 +11,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_gravity="end"
+        android:contentDescription="exit"
         android:src="@drawable/noun_exit_6413297"
         android:id="@+id/exit"/>
     <TextView

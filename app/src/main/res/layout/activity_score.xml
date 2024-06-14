@@ -63,6 +63,7 @@
         android:id="@+id/check"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:contentDescription="to'g'ri"
         android:src="@drawable/check"
         app:tint="@color/white" />
     <TextView
@@ -84,12 +85,12 @@
         android:id="@+id/refresh"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:contentDescription="Restart"
         android:src="@drawable/refresh"/>
     <TextView
         android:id="@+id/refresh2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/refresh"
         android:text="Qaytish"
         android:textColor="@color/white"
         android:textSize="20sp"/>
@@ -105,6 +106,7 @@
         android:id="@+id/cross"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:contentDescription="noto'g'ri"
         android:src="@drawable/noun_exit_6413297"
         app:tint="@color/white" />
     <TextView

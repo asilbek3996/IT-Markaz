@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1D1D1D"
+    android:background="@color/black"
     tools:context=".activity.QuizSplashActivity">
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         app:lottie_autoPlay="true"
         android:tint="#8BC34A"
-        app:lottie_rawRes="@raw/quiz_ortasi"
+        app:lottie_rawRes="@raw/quiz_center"
         app:lottie_loop="true" />
 
 </FrameLayout>

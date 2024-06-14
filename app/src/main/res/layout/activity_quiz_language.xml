@@ -38,13 +38,19 @@
                 android:paddingHorizontal="8dp"
                 android:layout_margin="2dp"
                 android:orientation="horizontal">
+<FrameLayout
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:id="@+id/back">
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center|start"
+        android:src="@drawable/back_quiz"
+        android:contentDescription="Back"
+        app:tint="@color/white" />
 
-                <ImageView
-                    android:id="@+id/back"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/back_quiz"
-                    app:tint="@color/white" />
+</FrameLayout>
 
                 <TextView
                     android:id="@+id/tvMain"

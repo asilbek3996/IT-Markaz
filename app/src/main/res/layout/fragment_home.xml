@@ -81,6 +81,7 @@
                         <androidx.viewpager.widget.ViewPager
                             android:layout_width="80dp"
                             android:layout_height="20dp"
+                            android:contentDescription="shimmerCategory"
                             android:background="@color/black"/>
                     </LinearLayout>
 
@@ -190,6 +191,7 @@
                                         <androidx.viewpager.widget.ViewPager
                                             android:layout_width="80dp"
                                             android:layout_height="20dp"
+                                            android:contentDescription="shimmer"
                                             android:background="@color/black"/>
 
                                     </LinearLayout>
@@ -367,7 +369,6 @@
                                     </LinearLayout>
                                 </LinearLayout>
                                 <LinearLayout
-                                    android:layout_marginTop="8dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical">
@@ -394,6 +395,7 @@
                                         <androidx.viewpager.widget.ViewPager
                                             android:layout_width="80dp"
                                             android:layout_height="20dp"
+                                            android:contentDescription="shimmer"
                                             android:background="@color/black"/>
 
                                     </LinearLayout>
@@ -570,9 +572,7 @@
                                         </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>
-
                                 <LinearLayout
-                                    android:layout_marginTop="8dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical">
@@ -599,6 +599,7 @@
                                         <androidx.viewpager.widget.ViewPager
                                             android:layout_width="80dp"
                                             android:layout_height="20dp"
+                                            android:contentDescription="shimmer"
                                             android:background="@color/black"/>
 
                                     </LinearLayout>
@@ -775,9 +776,7 @@
                                         </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>
-
                                 <LinearLayout
-                                    android:layout_marginTop="8dp"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical">
@@ -804,6 +803,7 @@
                                         <androidx.viewpager.widget.ViewPager
                                             android:layout_width="80dp"
                                             android:layout_height="20dp"
+                                            android:contentDescription="shimmer"
                                             android:background="@color/black"/>
 
                                     </LinearLayout>
@@ -1059,8 +1059,9 @@
                             android:text="@string/category"/>
                         <LinearLayout
                             android:id="@+id/tvAll"
-                            android:layout_width="80dp"
-                            android:layout_height="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:contentDescription="allCategory"
                             android:orientation="horizontal"
                             android:background="@drawable/ripple_effect"
                             android:gravity="end|center">
@@ -1082,7 +1083,6 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         android:layout_marginHorizontal="28dp"
                         android:orientation="horizontal">
                         <LinearLayout

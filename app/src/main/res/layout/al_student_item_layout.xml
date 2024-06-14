@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             app:cardBackgroundColor="#A8A8A8"
-            app:cardCornerRadius="8dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="1dp">
             <FrameLayout
                 android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                 android:layout_gravity="bottom">
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="12dp"
+                    android:layout_height="wrap_content"
                     app:cardCornerRadius="12dp"
                     app:cardBackgroundColor="#434543"
                     android:layout_margin="1.5dp"
@@ -62,7 +62,7 @@
                             android:id="@+id/foiz"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:gravity="center|center_vertical"
                             android:textSize="10sp"
                             android:text="100"
@@ -71,7 +71,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:gravity="center"
                             android:textSize="10sp"
                             android:text="%"
@@ -89,7 +89,6 @@
             android:textSize="14sp"
             android:maxLines="2"
             android:textStyle="bold"
-            android:text="Melikoziyev Islomjon"
             android:gravity="center"/>
     </LinearLayout>
 </LinearLayout>

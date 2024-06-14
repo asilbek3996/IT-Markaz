@@ -71,7 +71,7 @@
                 <LinearLayout
                     android:id="@+id/back"
                     android:layout_width="50dp"
-                    android:layout_height="30dp"
+                    android:layout_height="48dp"
                     android:gravity="start|center"
                     android:orientation="horizontal">
 

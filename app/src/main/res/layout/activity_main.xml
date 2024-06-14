@@ -33,8 +33,8 @@
 
             <FrameLayout
                 android:id="@+id/fmNotification"
-                android:layout_width="35dp"
-                android:layout_height="wrap_content">
+                android:layout_width="48dp"
+                android:layout_height="48dp">
                 <androidx.cardview.widget.CardView
                     android:id="@+id/ntRead"
                     android:layout_width="11dp"
@@ -54,14 +54,19 @@
                         android:textSize="6sp"
                         android:textColor="@color/white"/>
                 </androidx.cardview.widget.CardView>
-                <ImageButton
+                <FrameLayout
                     android:id="@+id/notification"
-                    android:layout_width="24dp"
-                    app:tint="@color/white"
-                    android:layout_height="24dp"
-                    android:contentDescription="Notification"
-                    android:layout_gravity="center"
-                    android:src="@drawable/notification" />
+                    android:layout_width="48dp"
+                    android:layout_height="48dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        app:tint="@color/white"
+                        android:layout_height="30dp"
+                        android:contentDescription="Notification"
+                        android:layout_gravity="center"
+                        android:src="@drawable/notification" />
+
+                </FrameLayout>
 
             </FrameLayout>
 
