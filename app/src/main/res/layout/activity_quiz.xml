@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="#5CFFFFFF"
+                    android:background="#00FFFFFF"
                     android:paddingHorizontal="8dp"
                     android:layout_margin="2dp"
                     android:orientation="horizontal">
@@ -45,9 +45,9 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/back_quiz"
-                            android:pointerIcon="arrow"
-                            android:layout_gravity="center|start"
-                            android:contentDescription="back"
+                            android:contentDescription="Back"
+                            android:foregroundTint="#08AA0D"
+                            android:layout_gravity="center"
                             app:tint="@color/white" />
                     </FrameLayout>
 

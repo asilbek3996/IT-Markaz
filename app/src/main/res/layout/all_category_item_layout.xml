@@ -16,14 +16,21 @@
             android:id="@+id/categoryCard"
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            app:cardBackgroundColor="#F3F3F3"
-            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="@color/white"
+            android:foregroundTint="#6B97CC"
+            app:cardCornerRadius="17dp"
             app:cardElevation="1dp">
-            <ImageView
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:id="@+id/caytegoryImg"/>
+                android:background="@drawable/category_backgroun">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:id="@+id/caytegoryImg"/>
+            </FrameLayout>
+
         </androidx.cardview.widget.CardView>
         <TextView
             android:layout_width="match_parent"

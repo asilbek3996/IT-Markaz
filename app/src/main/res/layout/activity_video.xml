@@ -41,8 +41,9 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:contentDescription="back"
+                    android:foregroundTint="#08AA0D"
                     android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
-                    app:tint="@color/white" />
+                    app:tint="@color/black" />
 
                 <TextView
                     android:id="@+id/tvLanguage"
@@ -62,7 +63,8 @@
                     android:layout_height="24dp"
                     android:layout_marginEnd="6dp"
                     android:contentDescription="back"
-                    android:src="@drawable/favorite" />
+                    android:src="@drawable/favorite"
+                    app:tint="@color/black" />
             </LinearLayout>
 
             <LinearLayout

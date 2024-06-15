@@ -31,7 +31,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Salom, \nXush kelibsiz!"
+            android:text="@string/salom_nxush_kelibsiz"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:textSize="30sp"
@@ -53,7 +53,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sizning ID raqamingiz"
+                android:text="@string/sizning_id_raqamingiz"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="20sp"/>
@@ -69,14 +69,15 @@
                 android:textColor="#474747"
                 android:inputType="numberSigned"
                 android:background="@drawable/edit_text_background"
-                android:hint="ID raqamingizni kiriting" />
+                android:hint="@string/id_raqamingizni_kiriting"
+                tools:ignore="TextFields" />
 
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="KIRISH"
+                android:text="@string/kirish"
                 android:textColor="@color/white"
                 style="@android:style/Widget.Button"
                 android:textSize="20sp"

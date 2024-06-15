@@ -10,28 +10,33 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/back_shape_icon"
         android:orientation="vertical">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/categoryCard"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            app:cardBackgroundColor="#F3F3F3"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="1dp">
-            <ImageView
+            android:background="@drawable/back_shape_icon">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/categoryCard"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:id="@+id/caytegoryImg"/>
-        </androidx.cardview.widget.CardView>
+                android:layout_height="110dp"
+                app:cardBackgroundColor="#00F3F3F3"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="1dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/caytegoryImg"/>
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:textColor="@color/black"
-            android:layout_marginTop="8dp"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:text="Kotlin"
+            android:text="@string/kotlin"
             android:gravity="center"
             android:id="@+id/categoryTxt"/>
     </LinearLayout>

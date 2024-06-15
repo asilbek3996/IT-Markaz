@@ -64,6 +64,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="to'g'ri"
+        android:foregroundTint="#08AA0D"
         android:src="@drawable/check"
         app:tint="@color/white" />
     <TextView
@@ -86,6 +87,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:contentDescription="Restart"
+        android:foregroundTint="#08AA0D"
         android:src="@drawable/refresh"/>
     <TextView
         android:id="@+id/refresh2"
@@ -108,6 +110,7 @@
         android:layout_height="30dp"
         android:contentDescription="noto'g'ri"
         android:src="@drawable/noun_exit_6413297"
+        android:foregroundTint="#08AA0D"
         app:tint="@color/white" />
     <TextView
         android:id="@+id/totalWrong"

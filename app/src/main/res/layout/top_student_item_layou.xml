@@ -55,7 +55,8 @@
                     android:layout_marginEnd="1dp"
                     android:fontFamily="sans-serif-black"
                     android:text="@string/all"
-                    android:textColor="@color/dark_green"
+                    android:foregroundTint="#292929"
+                    android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 

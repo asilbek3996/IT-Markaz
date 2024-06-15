@@ -30,7 +30,7 @@
         android:padding="16dp"
         android:text="O'ynash"
         android:textColor="@android:color/white"
-        app:backgroundTint="#09D111"
+        app:backgroundTint="#328225"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

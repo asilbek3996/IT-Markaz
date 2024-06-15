@@ -276,8 +276,10 @@
                         android:textSize="18sp"
                         android:padding="12dp"
                         android:layout_marginTop="12dp"
-                        android:textColor="#474747"
+                        android:textColor="#000"
                         android:inputType="numberSigned"
+                        android:foregroundTint="#3A8358"
+                        android:textColorHint="@color/black"
                         android:background="@drawable/edit_text_background"
                         android:hint="ID raqamingizni kiriting" />
 

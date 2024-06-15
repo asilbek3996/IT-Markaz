@@ -32,40 +32,46 @@
             android:orientation="horizontal">
 
             <FrameLayout
-                android:id="@+id/fmNotification"
                 android:layout_width="48dp"
                 android:layout_height="48dp">
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/ntRead"
-                    android:layout_width="11dp"
-                    android:layout_height="11dp"
-                    app:cardCornerRadius="5.5dp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:visibility="gone"
-                    app:cardBackgroundColor="@color/red"
-                    android:layout_gravity="center_horizontal">
-                    <TextView
-                        android:id="@+id/tvNotification"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textStyle="normal"
-                        android:gravity="center"
-                        android:textSize="6sp"
-                        android:textColor="@color/white"/>
-                </androidx.cardview.widget.CardView>
                 <FrameLayout
-                    android:id="@+id/notification"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp">
-                    <ImageView
-                        android:layout_width="30dp"
-                        app:tint="@color/white"
-                        android:layout_height="30dp"
-                        android:contentDescription="Notification"
-                        android:layout_gravity="center"
-                        android:src="@drawable/notification" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/fmNotification">
 
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/ntRead"
+                        android:layout_width="11dp"
+                        android:layout_height="11dp"
+                        app:cardCornerRadius="5.5dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/red"
+                        android:layout_gravity="center_horizontal">
+                        <TextView
+                            android:id="@+id/tvNotification"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textStyle="normal"
+                            android:gravity="center"
+                            android:textSize="6sp"
+                            android:textColor="@color/white"/>
+                    </androidx.cardview.widget.CardView>
+                    <FrameLayout
+                        android:id="@+id/notification"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp">
+                        <ImageView
+                            android:layout_width="30dp"
+                            app:tint="@color/black"
+                            android:foregroundTint="#4AA22E"
+                            android:layout_height="30dp"
+                            android:contentDescription="Notification"
+                            android:layout_gravity="center"
+                            android:src="@drawable/notification" />
+
+                    </FrameLayout>
                 </FrameLayout>
 
             </FrameLayout>
@@ -96,9 +102,10 @@
                     <ImageView
                         android:id="@+id/refreshMain"
                         android:layout_width="24dp"
-                        app:tint="@color/white"
+                        app:tint="@color/black"
                         android:contentDescription="Refresh"
                         android:layout_height="24dp"
+                        android:foregroundTint="#4DA834"
                         android:src="@drawable/refresh" />
                     <ProgressBar
                         android:layout_width="24dp"
@@ -147,7 +154,7 @@
                 android:background="@drawable/appcompat_buttonn"
                 app:itemIconTint="@drawable/bottom_nav_view_item"
                 app:itemRippleColor="@color/light_green"
-                app:labelVisibilityMode="unlabeled"
+                app:labelVisibilityMode="labeled"
                 app:itemTextColor="@color/black"
                 app:menu="@menu/nav_view" />
         </LinearLayout>

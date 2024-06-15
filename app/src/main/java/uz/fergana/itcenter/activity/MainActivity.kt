@@ -10,6 +10,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -52,7 +53,6 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
         var pref = PrefUtils(this)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         loadData()
-        var notification = findViewById<ImageView>(R.id.notification)
         binding.notification.setOnClickListener {
             startActivity(Intent(this, NotificationsActivity::class.java))
         }
@@ -95,7 +95,6 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
                     .commit()
                 activeFragment = homeFragment
                 binding.tvMain.text = "Asosiy"
-                notification.visibility = View.VISIBLE
                 binding.refreshMain.visibility = View.VISIBLE
                 binding.refreshProgressMain.visibility = View.GONE
                 binding.refreshDialog.visibility = View.VISIBLE
@@ -105,16 +104,14 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
                     .show(favoriteFragment).commit()
                 activeFragment = favoriteFragment
                 binding.tvMain.text = "Tanlanganlar"
-                notification.visibility = View.VISIBLE
                 binding.refreshDialog.visibility = View.GONE
-                binding.fmNotification.visibility = View.VISIBLE
+                binding.fmNotification.visibility = View.GONE
                 favoriteFragment.updateData()
             } else if (it.itemId == R.id.actionGame) {
                 supportFragmentManager.beginTransaction().hide(activeFragment).show(quizFragment)
                     .commit()
                 activeFragment = quizFragment
-                binding.tvMain.text = "O'yin"
-                notification.visibility = View.GONE
+                binding.tvMain.text = "O'yinlar"
                 binding.refreshDialog.visibility = View.GONE
                 binding.fmNotification.visibility = View.GONE
             } else if (it.itemId == R.id.actionProfile) {
@@ -122,11 +119,10 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
                     .commit()
                 activeFragment = profileFragment
                 binding.tvMain.text = "Hisob"
-                notification.visibility = View.VISIBLE
-                binding.refreshMain.visibility = View.VISIBLE
+                binding.refreshMain.visibility = View.GONE
                 binding.refreshProgressMain.visibility = View.GONE
-                binding.refreshDialog.visibility = View.VISIBLE
-                binding.fmNotification.visibility = View.VISIBLE
+                binding.refreshDialog.visibility = View.GONE
+                binding.fmNotification.visibility = View.GONE
             }
 
             true

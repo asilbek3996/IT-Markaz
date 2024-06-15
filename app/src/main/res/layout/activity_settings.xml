@@ -33,8 +33,9 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="Back"
+                android:foregroundTint="#08AA0D"
                 android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
-                app:tint="@color/white" />
+                app:tint="@color/black" />
             <TextView
                 android:id="@+id/tvMain"
                 android:layout_width="0dp"
@@ -82,7 +83,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/about_svgrepo_com"
-                app:tint="#00CA08"
+                app:tint="@color/black"
                 android:layout_marginEnd="20dp"/>
         </LinearLayout>
         <LinearLayout
@@ -104,7 +105,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/share"
-                app:tint="#00CA08"
+                app:tint="@color/black"
                 android:layout_marginEnd="20dp"/>
         </LinearLayout>
     </LinearLayout>

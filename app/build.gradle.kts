@@ -15,8 +15,8 @@ android {
         applicationId = "uz.fergana.itcenter"
         minSdk = 24
         targetSdk = 34
-        versionCode = 6
-        versionName = "2.6"
+        versionCode = 25
+        versionName = "3.1.7"
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

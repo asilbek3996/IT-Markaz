@@ -53,6 +53,7 @@
                     android:id="@+id/ivExit"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_marginEnd="32dp"
                     android:layout_gravity="end|center"
                     android:background="@drawable/ripple_effect">
                     <ImageView
@@ -86,8 +87,9 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:contentDescription="Back"
+                        android:foregroundTint="#08AA0D"
                         android:src="@drawable/ic_baseline_arrow_back_ios_new_24"
-                        app:tint="@color/white" />
+                        app:tint="@color/black" />
                 </LinearLayout>
 
                 <TextView
@@ -98,6 +100,7 @@
                     android:layout_weight="1"
                     android:background="@android:color/transparent"
                     android:gravity="center"
+                    android:foregroundTint="#4DA834"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -106,15 +109,16 @@
                     android:id="@+id/search"
                     android:layout_width="50dp"
                     android:layout_height="48dp"
-                    android:gravity="end|center"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/search"
+                        android:foregroundTint="#4DA834"
                         android:contentDescription="Search"
-                        app:tint="@color/white" />
+                        app:tint="@color/black" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -209,7 +213,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="8dp"
-                            android:text="Subtitr"
+                            android:text="@string/subtitr"
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             android:textStyle="normal" />

@@ -1070,7 +1070,8 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
-                                android:textColor="@color/dark_green"
+                                android:foregroundTint="#292929"
+                                android:textColor="@color/black"
                                 android:fontFamily="sans-serif-black"
                                 android:layout_marginEnd="1dp"
                                 android:text="@string/all"/>
@@ -1095,17 +1096,19 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
-                                app:cardBackgroundColor="#F3F3F3"
-                                app:cardCornerRadius="8dp"
+                                app:cardBackgroundColor="#fff"
+                                android:foregroundTint="#4AA61C"
+                                app:cardCornerRadius="17dp"
                                 app:cardElevation="1dp">
                                 <FrameLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/category_backgroun">
                                     <ImageView
                                         android:id="@+id/imgCategory1"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:scaleType="centerCrop"/>
+                                        android:scaleType="fitCenter"/>
                                 </FrameLayout>
                             </androidx.cardview.widget.CardView>
                             <TextView
@@ -1130,12 +1133,14 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
-                                app:cardBackgroundColor="#F3F3F3"
-                                app:cardCornerRadius="8dp"
+                                app:cardBackgroundColor="#fff"
+                                android:foregroundTint="#4AA61C"
+                                app:cardCornerRadius="17dp"
                                 app:cardElevation="1dp">
                                 <FrameLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/category_backgroun">
 
                                     <ImageView
                                         android:id="@+id/imgCategory2"
@@ -1166,12 +1171,14 @@
                             <androidx.cardview.widget.CardView
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
-                                app:cardBackgroundColor="#F3F3F3"
-                                app:cardCornerRadius="8dp"
+                                app:cardBackgroundColor="#fff"
+                                android:foregroundTint="#4AA61C"
+                                app:cardCornerRadius="17dp"
                                 app:cardElevation="1dp">
                                 <FrameLayout
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent">
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/category_backgroun">
                                     <ImageView
                                         android:id="@+id/imgCategory3"
                                         android:layout_width="match_parent"

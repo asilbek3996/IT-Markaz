@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -158,10 +159,10 @@ class DarslarActivity : AppCompatActivity() {
         messageTextView?.setTextColor(Color.BLACK)
 
         val positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
-        positiveButton?.setTextColor(Color.BLACK)
+        positiveButton?.setTextColor(ContextCompat.getColor(this,R.color.greens))
 
         val negativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
-        negativeButton?.setTextColor(Color.BLACK)
+        negativeButton?.setTextColor(ContextCompat.getColor(this,R.color.greens))
         alertDialog.window?.setBackgroundDrawableResource(R.color.white)
     }
 
