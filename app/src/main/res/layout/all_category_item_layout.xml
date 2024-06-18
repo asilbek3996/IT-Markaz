@@ -5,33 +5,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
     <LinearLayout
-        android:id="@+id/category"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-        <androidx.cardview.widget.CardView
-            android:id="@+id/categoryCard"
+
+        <LinearLayout
+            android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            app:cardBackgroundColor="@color/white"
-            android:foregroundTint="#6B97CC"
-            app:cardCornerRadius="17dp"
-            app:cardElevation="1dp">
-            <FrameLayout
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:background="@drawable/category_backgroun"
+            android:orientation="vertical">
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/category_backgroun">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:id="@+id/caytegoryImg"/>
-            </FrameLayout>
+                android:layout_margin="4dp"
+                android:id="@+id/caytegoryImg"/>
 
-        </androidx.cardview.widget.CardView>
+
+
+
+        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,6 +38,5 @@
             android:text="Kotlin"
             android:gravity="center"
             android:id="@+id/categoryTxt"/>
-
     </LinearLayout>
 </LinearLayout>

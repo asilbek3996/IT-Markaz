@@ -8,15 +8,14 @@ plugins {
 }
 
 android {
-    namespace = "uz.fergana.itcenter"
+    namespace = "uz.fergana.it_center"
     compileSdk = 34
-
     defaultConfig {
-        applicationId = "uz.fergana.itcenter"
+        applicationId = "uz.fergana.it_center"
         minSdk = 24
         targetSdk = 34
-        versionCode = 25
-        versionName = "3.1.7"
+        versionCode = 42
+        versionName = "39.0.3"
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -32,7 +32,7 @@
     <string name="barcha_dasturlash_tillari">Barcha dasturlash tillari</string>
     <string name="search">search</string>
     <string name="clear">clear</string>
-    <string name="barch_o_quvchilar">Barch O\'quvchilar</string>
+    <string name="barcha_o_quvchilar">Barcha O\'quvchilar</string>
     <string name="tez_kunda">Tez kunda...</string>
     <string name="salom_nxush_kelibsiz">Salom, \nXush kelibsiz!</string>
     <string name="sizning_id_raqamingiz">Sizning ID raqamingiz</string>
@@ -45,4 +45,5 @@
     <string name="boshlang_ich_kurs">Boshlang\'ich kurs</string>
     <string name="o_rta_kurs">O\'rta kurs</string>
     <string name="murakkab_kurs">Murakkab kurs</string>
+    <string name="dasturlash_tilari">Dasturlash tilari</string>
 </resources>

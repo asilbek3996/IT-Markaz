@@ -41,18 +41,19 @@
                 app:searchHintIcon="@color/black"
                 app:searchIcon="@drawable/search" />
             <FrameLayout
-                android:id="@+id/ivExit"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:id="@+id/fmExit"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_gravity="end|center"
-                android:layout_marginEnd="32dp"
                 android:background="@drawable/ripple_effect">
                 <ImageView
+                    android:id="@+id/ivExit"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/clear"
                     android:contentDescription="Clear"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center|end"
+                    app:tint="@color/black" />
 
             </FrameLayout>
 
@@ -69,8 +70,8 @@
             android:visibility="visible">
             <LinearLayout
                 android:id="@+id/back"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:orientation="horizontal"
                 android:gravity="start|center">
                 <ImageView
@@ -90,15 +91,15 @@
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:gravity="center"
-                android:text="@string/barch_o_quvchilar"
+                android:text="@string/barcha_o_quvchilar"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/search"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:orientation="horizontal"
                 android:gravity="end|center">
                 <ImageView

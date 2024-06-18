@@ -2,32 +2,19 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_splash_activity"
+    android:layout_gravity="center"
+    android:background="#FFFFFF"
     android:contentDescription="Splash"
     tools:context=".activity.SplashActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical">
-
-            <com.airbnb.lottie.LottieAnimationView
+    <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/animationView"
                 android:layout_width="300dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 app:lottie_autoPlay="true"
                 android:tint="#8BC34A"
-                app:lottie_rawRes="@raw/bar"
+                app:lottie_rawRes="@raw/baring"
                 app:lottie_loop="true" />
-
-        </LinearLayout>
-
-
-
-
 </FrameLayout>

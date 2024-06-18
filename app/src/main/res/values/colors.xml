@@ -15,4 +15,6 @@
     <color name="green">#34d287</color>
     <color name="grey">#e9e7f2</color>
     <color name="greens">#298561</color>
+    <color name="your_text_color">#000000</color>
+    <color name="your_hint_color">#FFFFFF</color>
 </resources>

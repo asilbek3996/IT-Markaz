@@ -50,18 +50,19 @@
                     app:searchHintIcon="@color/black"
                     app:searchIcon="@drawable/search" />
                 <FrameLayout
-                    android:id="@+id/ivExit"
+                    android:id="@+id/fmExit"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginEnd="32dp"
                     android:layout_gravity="end|center"
                     android:background="@drawable/ripple_effect">
                     <ImageView
+                        android:id="@+id/ivExit"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:src="@drawable/clear"
                         android:contentDescription="clear"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center"
+                        app:tint="@color/black" />
 
                 </FrameLayout>
             </FrameLayout>
@@ -101,7 +102,7 @@
                     android:background="@android:color/transparent"
                     android:gravity="center"
                     android:foregroundTint="#4DA834"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 

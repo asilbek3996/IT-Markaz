@@ -27,7 +27,7 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="uz.fergana.itcenter" />
+                  <option name="appId" value="uz.fergana.it_center" />
                   <option name="mobileSdkAppId" value="1:919050346120:android:e779d1ffe52e5ec7c1093d" />
                   <option name="projectId" value="it-center-e83c5" />
                   <option name="projectNumber" value="919050346120" />
