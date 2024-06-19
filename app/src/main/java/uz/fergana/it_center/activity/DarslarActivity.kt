@@ -3,15 +3,18 @@ package uz.fergana.it_center.activity
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewTreeObserver
+import android.view.Window
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -38,12 +41,15 @@ class DarslarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDarslarBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.more.setOnClickListener {
+            showCustomDialogBox()
+        }
         // SearchView ning EditText elementini topish
-        val searchEditText = binding.searchview.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+//        val searchEditText = binding.searchview.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
 
         // Matn rangini o'zgartirish
-        searchEditText.setTextColor(Color.BLACK)
-        searchEditText.setHintTextColor(Color.BLACK)
+//        searchEditText.setTextColor(Color.BLACK)
+//        searchEditText.setHintTextColor(Color.BLACK)
         var pref = PrefUtils(this)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         val message = intent.getStringExtra("Til")
@@ -58,53 +64,53 @@ class DarslarActivity : AppCompatActivity() {
             binding.back.setOnClickListener {
                 finish()
             }
-            binding.search.setOnClickListener {
-                toggleLayoutVisibility() // toggleLayoutVisibility funksiyasini chaqirish
-            }
+//            binding.search.setOnClickListener {
+//                toggleLayoutVisibility() // toggleLayoutVisibility funksiyasini chaqirish
+//            }
 
 
-            binding.fmExit.post {
-                val rect = Rect()
-                binding.ivExit.getHitRect(rect)
-                val extraSpace = ((binding.fmExit.layoutParams.width - binding.ivExit.layoutParams.width) / 2)
-                rect.top -= extraSpace
-                rect.bottom += extraSpace
-                rect.left -= extraSpace
-                rect.right += extraSpace
-                binding.fmExit.touchDelegate = TouchDelegate(rect, binding.ivExit)
-            }
-            binding.fmExit.setOnClickListener {
-                animateButton(binding.ivExit)
-                binding.linearlayout1.visibility = View.GONE
-                binding.linearlayout2.visibility = View.VISIBLE
-            }
-            binding.searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-                    return false
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    binding.fmExit.setOnClickListener {
-                        animateButton(binding.ivExit)
-                        if (newText.isNullOrEmpty()) {
-                            binding.linearlayout1.visibility = View.GONE
-                            binding.linearlayout2.visibility = View.VISIBLE
-                        } else {
-                            binding.searchview.setQuery("", false)
-                        }
-                    }
-                    if (newText.isNullOrEmpty()) {
-                        if (level != null && message != null) {
-                            loadData(message, level)
-                        }
-                    } else {
-                        if (level != null && message != null) {
-                            filter(newText, message, level)
-                        }
-                    }
-                    return true
-                }
-            })
+//            binding.fmExit.post {
+//                val rect = Rect()
+//                binding.ivExit.getHitRect(rect)
+//                val extraSpace = ((binding.fmExit.layoutParams.width - binding.ivExit.layoutParams.width) / 2)
+//                rect.top -= extraSpace
+//                rect.bottom += extraSpace
+//                rect.left -= extraSpace
+//                rect.right += extraSpace
+//                binding.fmExit.touchDelegate = TouchDelegate(rect, binding.ivExit)
+//            }
+//            binding.fmExit.setOnClickListener {
+//                animateButton(binding.ivExit)
+//                binding.linearlayout1.visibility = View.GONE
+//                binding.linearlayout2.visibility = View.VISIBLE
+//            }
+//            binding.searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//                override fun onQueryTextSubmit(query: String?): Boolean {
+//                    return false
+//                }
+//
+//                override fun onQueryTextChange(newText: String?): Boolean {
+//                    binding.fmExit.setOnClickListener {
+//                        animateButton(binding.ivExit)
+//                        if (newText.isNullOrEmpty()) {
+//                            binding.linearlayout1.visibility = View.GONE
+//                            binding.linearlayout2.visibility = View.VISIBLE
+//                        } else {
+//                            binding.searchview.setQuery("", false)
+//                        }
+//                    }
+//                    if (newText.isNullOrEmpty()) {
+//                        if (level != null && message != null) {
+//                            loadData(message, level)
+//                        }
+//                    } else {
+//                        if (level != null && message != null) {
+//                            filter(newText, message, level)
+//                        }
+//                    }
+//                    return true
+//                }
+//            })
         } else if (group==null) {
             var txt = "Siz hech qaysi guruhda o'qimaysiz"
             showAlertDialog(txt, message!!)
@@ -163,17 +169,17 @@ class DarslarActivity : AppCompatActivity() {
 
     private fun toggleLayoutVisibility() {
         // SearchViewning joriy visibility holatini aniqlash
-        val currentVisibility = binding.search.visibility
+//        val currentVisibility = binding.search.visibility
         // Agar SearchView ko'rsatilmoqda bo'lsa
-        if (currentVisibility == View.VISIBLE) {
-            // LinearLayout1ni ko'rsatish va LinearLayout2ni yashirish
-            binding.linearlayout1.visibility = View.VISIBLE
-            binding.linearlayout2.visibility = View.GONE
-        } else {
-            // Aks holda, LinearLayout1ni yashirish va LinearLayout2ni ko'rsatish
-            binding.linearlayout1.visibility = View.GONE
-            binding.linearlayout2.visibility = View.VISIBLE
-        }
+//        if (currentVisibility == View.VISIBLE) {
+//            // LinearLayout1ni ko'rsatish va LinearLayout2ni yashirish
+////            binding.linearlayout1.visibility = View.VISIBLE
+//            binding.linearlayout2.visibility = View.GONE
+//        } else {
+//            // Aks holda, LinearLayout1ni yashirish va LinearLayout2ni ko'rsatish
+////            binding.linearlayout1.visibility = View.GONE
+//            binding.linearlayout2.visibility = View.VISIBLE
+//        }
     }
 
     private fun showAlertDialog(text: String, cource: String) {
@@ -205,6 +211,19 @@ class DarslarActivity : AppCompatActivity() {
         val negativeButton = alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE)
         negativeButton?.setTextColor(ContextCompat.getColor(this, R.color.greens))
         alertDialog.window?.setBackgroundDrawableResource(R.color.white)
+    }
+    private fun showCustomDialogBox() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.about_custom_dialog)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val exit: ImageView = dialog.findViewById(R.id.exit)
+        exit.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
     }
 
 }

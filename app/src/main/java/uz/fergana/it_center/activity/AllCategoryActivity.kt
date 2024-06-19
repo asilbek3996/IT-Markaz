@@ -2,14 +2,17 @@ package uz.fergana.it_center.activity
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.app.Dialog
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Rect
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import android.view.Window
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
@@ -35,84 +38,80 @@ class AllCategoryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val closeButton = binding.searchview.findViewById<ImageView>(androidx.appcompat.R.id
-            .search_close_btn)
-        closeButton.layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT).apply {
-            width = 48.dpToPx()
-            height = 48.dpToPx()
+
+
+
+        binding.more.setOnClickListener {
+            showCustomDialogBox()
         }
-
-
-
-
 
     viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         loadData()
 
 
         // SearchView ning EditText elementini topish
-        val searchEditText = binding.searchview.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+//        val searchEditText = binding.searchview.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
 
         // Matn rangini o'zgartirish
-        searchEditText.setTextColor(Color.BLACK)
-        searchEditText.setHintTextColor(Color.BLACK)
+//        searchEditText.setTextColor(Color.BLACK)
+//        searchEditText.setHintTextColor(Color.BLACK)
 
         binding.back.setOnClickListener {
             finish()
         }
-        binding.search.setOnClickListener {
-            toggleLayoutVisibility()
-        }
-        binding.fmExit.setOnClickListener {
-            animateButton(binding.ivExit)
-            binding.linearlayout1.visibility = View.GONE
-            binding.linearlayout2.visibility = View.VISIBLE
-        }
 
-        binding.fmExit.post {
-            val rect = Rect()
-            binding.ivExit.getHitRect(rect)
-            val extraSpace = ((binding.fmExit.layoutParams.width - binding.ivExit.layoutParams.width) / 2)
-            rect.top -= extraSpace
-            rect.bottom += extraSpace
-            rect.left -= extraSpace
-            rect.right += extraSpace
-            binding.fmExit.touchDelegate = TouchDelegate(rect, binding.ivExit)
-        }
+//        binding.search.setOnClickListener {
+//            toggleLayoutVisibility()
+//        }
+//        binding.fmExit.setOnClickListener {
+//            animateButton(binding.ivExit)
+//            binding.linearlayout1.visibility = View.GONE
+//            binding.linearlayout2.visibility = View.VISIBLE
+//        }
+
+//        binding.fmExit.post {
+//            val rect = Rect()
+//            binding.ivExit.getHitRect(rect)
+//            val extraSpace = ((binding.fmExit.layoutParams.width - binding.ivExit.layoutParams.width) / 2)
+//            rect.top -= extraSpace
+//            rect.bottom += extraSpace
+//            rect.left -= extraSpace
+//            rect.right += extraSpace
+//            binding.fmExit.touchDelegate = TouchDelegate(rect, binding.ivExit)
+//        }
         viewModel.categoriesData.observe(this@AllCategoryActivity){
             adapter = SearchCategoryAdapter(it)
             binding.recyclerSearchCategory.layoutManager = GridLayoutManager(this@AllCategoryActivity, 3)
             binding.recyclerSearchCategory.adapter = adapter
         }
-        binding.searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                binding.fmExit.setOnClickListener {
-                    animateButton(binding.ivExit)
-                    if (newText.isNullOrEmpty()) {
-                        binding.linearlayout1.visibility = View.GONE
-                        binding.linearlayout2.visibility = View.VISIBLE
-                    } else {
-                        binding.searchview.setQuery("", false)
-                    }
-                }
-
-                if (newText.isNullOrEmpty()) {
-                    binding.recyclerSearchCategory.visibility = View.GONE
-                    binding.recyclerAllCategory.visibility = View.VISIBLE
-                    viewModel.getAllCategories()
-                } else {
-                    binding.recyclerSearchCategory.visibility = View.VISIBLE
-                    binding.recyclerAllCategory.visibility = View.GONE
-                    filter(newText)
-                }
-                return true
-            }
-        })
+//        binding.searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                binding.fmExit.setOnClickListener {
+//                    animateButton(binding.ivExit)
+//                    if (newText.isNullOrEmpty()) {
+//                        binding.linearlayout1.visibility = View.GONE
+//                        binding.linearlayout2.visibility = View.VISIBLE
+//                    } else {
+//                        binding.searchview.setQuery("", false)
+//                    }
+//                }
+//
+//                if (newText.isNullOrEmpty()) {
+//                    binding.recyclerSearchCategory.visibility = View.GONE
+//                    binding.recyclerAllCategory.visibility = View.VISIBLE
+//                    viewModel.getAllCategories()
+//                } else {
+//                    binding.recyclerSearchCategory.visibility = View.VISIBLE
+//                    binding.recyclerAllCategory.visibility = View.GONE
+//                    filter(newText)
+//                }
+//                return true
+//            }
+//        })
 
 
         viewModel.categoriesData.observe(this) {
@@ -123,9 +122,7 @@ class AllCategoryActivity : AppCompatActivity() {
     fun loadData(){
         viewModel.getAllDBCategory()
     }
-    fun Int.dpToPx(): Int {
-        return (this * Resources.getSystem().displayMetrics.density).toInt()
-    }
+
 
     fun filter(text: String){
         val filters: ArrayList<CategoryModel> = ArrayList()
@@ -151,17 +148,44 @@ class AllCategoryActivity : AppCompatActivity() {
     }
     private fun toggleLayoutVisibility() {
         // SearchViewning joriy visibility holatini aniqlash
-        val currentVisibility = binding.search.visibility
+//        val currentVisibility = binding.search.visibility
         // Agar SearchView ko'rsatilmoqda bo'lsa
-        if (currentVisibility == View.VISIBLE) {
-            // LinearLayout1ni ko'rsatish va LinearLayout2ni yashirish
-            binding.linearlayout1.visibility = View.VISIBLE
-            binding.linearlayout2.visibility = View.GONE
-        } else {
+//        if (currentVisibility == View.VISIBLE) {
+//            // LinearLayout1ni ko'rsatish va LinearLayout2ni yashirish
+////            binding.linearlayout1.visibility = View.VISIBLE
+//            binding.linearlayout2.visibility = View.GONE
+//        } else {
             // Aks holda, LinearLayout1ni yashirish va LinearLayout2ni ko'rsatish
-            binding.linearlayout1.visibility = View.GONE
-            binding.linearlayout2.visibility = View.VISIBLE
+//            binding.linearlayout1.visibility = View.GONE
+//            binding.linearlayout2.visibility = View.VISIBLE
+//        }
+//        private fun showDialog() {
+//            val dialog = Dialog(this)
+//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+//            dialog.setCancelable(true)
+//            dialog.setContentView(R.layout.about_custom_dialog)
+//            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//
+//            val exit: ImageView = dialog.findViewById(R.id.exit)
+//            exit.setOnClickListener {
+//                dialog.dismiss()
+//            }
+//            dialog.show()
+//        }
+
+    }
+    private fun showCustomDialogBox() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.about_custom_dialog)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val exit: ImageView = dialog.findViewById(R.id.exit)
+        exit.setOnClickListener {
+            dialog.dismiss()
         }
+        dialog.show()
     }
 }
 

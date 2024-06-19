@@ -21,46 +21,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/linearlayout1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:background="@drawable/appcompat_buttonss"
-            android:gravity="center_vertical"
-            android:visibility="gone">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/linearlayout1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@drawable/appcompat_buttonss"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:visibility="gone">-->
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchview"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:closeIcon="@null"
-                app:iconifiedByDefault="false"
-                app:queryBackground="@android:color/transparent"
-                app:queryHint="Search"
-                android:layout_marginRight="4dp"
-                app:searchHintIcon="@color/black"
-                app:searchIcon="@drawable/search" />
-            <LinearLayout
-                android:id="@+id/fmExit"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center|end"
-                android:gravity="center"
-                android:background="@drawable/ripple_effect">
-                <ImageView
-                    android:id="@+id/ivExit"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/clear"
-                    android:contentDescription="Clear"
-                    android:layout_gravity="center"
-                    app:tint="@color/black" />
+<!--            <androidx.appcompat.widget.SearchView-->
+<!--                android:id="@+id/searchview"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_height="match_parent"-->
+<!--                app:closeIcon="@null"-->
+<!--                android:inputType="text"-->
+<!--                android:layout_marginEnd="4dp"-->
+<!--                app:iconifiedByDefault="false"-->
+<!--                app:queryBackground="@android:color/transparent"-->
+<!--                app:queryHint="Search"-->
+<!--                app:searchHintIcon="@color/black"-->
+<!--                app:searchIcon="@drawable/search" />-->
+<!--            <View-->
+<!--                android:layout_width="1dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@color/black"/>-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/fmExit"-->
+<!--                android:layout_width="48dp"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:gravity="center"-->
+<!--                android:background="@drawable/ripple_effect">-->
+<!--                <ImageView-->
+<!--                    android:id="@+id/ivExit"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:src="@drawable/clear"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="#00FFFFFF"-->
+<!--                    android:contentDescription="@string/clear"-->
+<!--                    app:tint="@color/black" />-->
+<!--            </LinearLayout>-->
 
-            </LinearLayout>
-
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/linearlayout2"
@@ -100,18 +104,19 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:id="@+id/search"
-                android:layout_width="48dp"
+                android:id="@+id/more"
+                android:layout_width="50dp"
                 android:layout_height="48dp"
-                android:orientation="horizontal"
-                android:gravity="end|center">
+                android:gravity="center|end"
+                android:orientation="horizontal">
+
                 <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:contentDescription="search"
-                    android:src="@drawable/search"
-                    app:tint="@color/black"
-                    android:foregroundTint="#08AA0D" />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/baseline_more_vert_24"
+                    android:foregroundTint="#4DA834"
+                    android:contentDescription="Search"
+                    app:tint="@color/black" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

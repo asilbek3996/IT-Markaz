@@ -26,46 +26,50 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/linearlayout1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/appcompat_buttonss"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="gone">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linearlayout1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:background="@drawable/appcompat_buttonss"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:visibility="visible">-->
 
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/searchview"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    app:closeIcon="@drawable/clear"
-                    android:inputType="text"
-                    android:layout_marginEnd="4dp"
-                    app:iconifiedByDefault="false"
-                    app:queryBackground="@android:color/transparent"
-                    app:queryHint="Search"
-                    app:searchHintIcon="@color/black"
-                    app:searchIcon="@drawable/search" />
+<!--                <androidx.appcompat.widget.SearchView-->
+<!--                    android:id="@+id/searchview"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    app:closeIcon="@null"-->
+<!--                    android:inputType="text"-->
+<!--                    android:layout_marginEnd="4dp"-->
+<!--                    app:iconifiedByDefault="false"-->
+<!--                    app:queryBackground="@android:color/transparent"-->
+<!--                    app:queryHint="Searchsasasasaasasasasasasasa"-->
+<!--                    app:searchHintIcon="@color/black"-->
+<!--                    app:searchIcon="@drawable/search" />-->
+<!--                <View-->
+<!--                    android:layout_width="1dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@color/black"/>-->
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/fmExit"-->
+<!--                    android:layout_width="48dp"-->
+<!--                    android:layout_height="48dp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:background="@drawable/ripple_effect">-->
+<!--                    <ImageView-->
+<!--                        android:id="@+id/ivExit"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:src="@drawable/clear"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:background="#00FFFFFF"-->
+<!--                        android:contentDescription="@string/clear"-->
+<!--                        app:tint="@color/black" />-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/fmExit"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:gravity="center"
-                    android:background="@drawable/ripple_effect">
-                    <ImageView
-                        android:id="@+id/ivExit"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/clear"
-                        android:layout_gravity="center"
-                        android:contentDescription="@string/clear"
-                        app:tint="@color/black" />
-                </LinearLayout>
-
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:id="@+id/linearlayout2"
@@ -81,7 +85,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center|start">
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -105,18 +109,18 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:id="@+id/search"
-                    android:layout_width="48dp"
+                    android:id="@+id/more"
+                    android:layout_width="50dp"
                     android:layout_height="48dp"
-                    android:gravity="center"
+                    android:gravity="center|end"
                     android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:contentDescription="@string/search"
-                        android:foregroundTint="#08AA0D"
-                        android:src="@drawable/search"
+                        android:src="@drawable/baseline_more_vert_24"
+                        android:foregroundTint="#4DA834"
+                        android:contentDescription="Search"
                         app:tint="@color/black" />
                 </LinearLayout>
             </LinearLayout>
