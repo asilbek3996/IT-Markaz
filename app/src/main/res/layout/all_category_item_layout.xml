@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,31 +14,29 @@
         <LinearLayout
             android:id="@+id/category"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="50dp"
             android:layout_marginHorizontal="8dp"
             android:layout_marginTop="16dp"
+            android:background="@drawable/appcompat_buttonss"
             android:gravity="center"
-            android:background="@drawable/category_backgroun"
-            android:orientation="vertical">
-            <ImageView
+            android:orientation="vertical"
+            android:padding="8dp"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/categoryTxt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:id="@+id/caytegoryImg"/>
-
-
-
-
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Kotlin"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="Kotlin"
-            android:gravity="center"
-            android:id="@+id/categoryTxt"/>
+
+
+
     </LinearLayout>
 </LinearLayout>

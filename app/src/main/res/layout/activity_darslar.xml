@@ -21,7 +21,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardToolbar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="14dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="14dp"
@@ -31,29 +31,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <FrameLayout
+            <LinearLayout
                 android:id="@+id/linearlayout1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:background="@drawable/appcompat_buttonss"
                 android:gravity="center_vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <androidx.appcompat.widget.SearchView
                     android:id="@+id/searchview"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     app:closeIcon="@null"
+                    android:layout_marginRight="4dp"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@android:color/transparent"
                     app:queryHint="Search"
                     app:searchHintIcon="@color/black"
                     app:searchIcon="@drawable/search" />
-                <FrameLayout
+                <LinearLayout
                     android:id="@+id/fmExit"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="end|center"
+                    android:gravity="center"
                     android:background="@drawable/ripple_effect">
                     <ImageView
                         android:id="@+id/ivExit"
@@ -64,8 +68,8 @@
                         android:layout_gravity="center"
                         app:tint="@color/black" />
 
-                </FrameLayout>
-            </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearlayout2"
@@ -75,7 +79,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingHorizontal="8dp"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <LinearLayout
                     android:id="@+id/back"

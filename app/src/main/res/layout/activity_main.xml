@@ -13,7 +13,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardToolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="14dp"
@@ -132,7 +132,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/bnvCard"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"

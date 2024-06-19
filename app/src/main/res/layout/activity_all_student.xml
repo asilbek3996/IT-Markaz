@@ -11,7 +11,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardToolbar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="14dp"
@@ -21,30 +21,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
+        <LinearLayout
             android:id="@+id/linearlayout1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="horizontal"
             android:background="@drawable/appcompat_buttonss"
             android:gravity="center_vertical"
-            android:paddingHorizontal="8dp"
             android:visibility="gone">
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchview"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 app:closeIcon="@null"
                 app:iconifiedByDefault="false"
                 app:queryBackground="@android:color/transparent"
                 app:queryHint="Search"
+                android:layout_marginRight="4dp"
                 app:searchHintIcon="@color/black"
                 app:searchIcon="@drawable/search" />
-            <FrameLayout
+            <LinearLayout
                 android:id="@+id/fmExit"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_gravity="end|center"
+                android:layout_gravity="center|end"
+                android:gravity="center"
                 android:background="@drawable/ripple_effect">
                 <ImageView
                     android:id="@+id/ivExit"
@@ -52,12 +55,12 @@
                     android:layout_height="30dp"
                     android:src="@drawable/clear"
                     android:contentDescription="Clear"
-                    android:layout_gravity="center|end"
+                    android:layout_gravity="center"
                     app:tint="@color/black" />
 
-            </FrameLayout>
+            </LinearLayout>
 
-        </FrameLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearlayout2"

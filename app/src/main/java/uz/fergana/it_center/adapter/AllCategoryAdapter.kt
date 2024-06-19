@@ -29,9 +29,9 @@ class AllCategoryAdapter(var items: List<CategoryModel>): RecyclerView.Adapter<A
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         val item = items[position]
-        Glide.with(holder.binding.caytegoryImg)
-            .load(item.image)
-            .into(holder.binding.caytegoryImg)
+//        Glide.with(holder.binding.caytegoryImg)
+//            .load(item.image)
+//            .into(holder.binding.caytegoryImg)
         holder.binding.categoryTxt.text = item.language
         holder.itemView.setOnClickListener {
             val intent = Intent(it.context, LevelActivity::class.java)

@@ -40,19 +40,20 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    app:closeIcon="@null"
+                    app:closeIcon="@drawable/clear"
                     android:inputType="text"
+                    android:layout_marginEnd="4dp"
                     app:iconifiedByDefault="false"
                     app:queryBackground="@android:color/transparent"
                     app:queryHint="Search"
                     app:searchHintIcon="@color/black"
                     app:searchIcon="@drawable/search" />
 
-                <FrameLayout
+                <LinearLayout
                     android:id="@+id/fmExit"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_gravity="end|center"
+                    android:gravity="center"
                     android:background="@drawable/ripple_effect">
                     <ImageView
                         android:id="@+id/ivExit"
@@ -62,7 +63,7 @@
                         android:layout_gravity="center"
                         android:contentDescription="@string/clear"
                         app:tint="@color/black" />
-                </FrameLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -128,7 +129,7 @@
             android:orientation="vertical">
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginHorizontal="8dp"
                 android:id="@+id/recyclerAllCategory"/>
             <androidx.recyclerview.widget.RecyclerView

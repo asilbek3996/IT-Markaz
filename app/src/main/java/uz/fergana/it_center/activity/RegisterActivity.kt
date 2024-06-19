@@ -34,6 +34,7 @@ class RegisterActivity : AppCompatActivity() {
             editor.putString("group", "x")
             editor.apply()
         }
+
         binding.logIn.setOnClickListener {
             startActivity(Intent(this,LoginActivity::class.java))
             finish()

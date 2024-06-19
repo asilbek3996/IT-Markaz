@@ -57,38 +57,17 @@ class AllStudentActivity : AppCompatActivity() {
             binding.recyclerSearchStudent.adapter = adapter
             getStudent(it,message!!)
         }
-        binding.fmExit.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                binding.fmExit.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                val parent = binding.fmExit.parent as View
-                parent.post {
-                    val rect = Rect()
-                    binding.fmExit.getHitRect(rect)
-                    val extraPadding = 32  // 32dp ni sensorli maydonni kengaytirish uchun qo'shing
-                    rect.top -= extraPadding
-                    rect.left -= extraPadding
-                    rect.bottom += extraPadding
-                    rect.right += extraPadding
-                    parent.touchDelegate = TouchDelegate(rect, binding.fmExit)
-                }
-            }
-        })
-        binding.ivExit.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                binding.ivExit.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                val parent = binding.ivExit.parent as View
-                parent.post {
-                    val rect = Rect()
-                    binding.ivExit.getHitRect(rect)
-                    val extraPadding = 32
-                    rect.top -= extraPadding
-                    rect.left -= extraPadding
-                    rect.bottom += extraPadding
-                    rect.right += extraPadding
-                    parent.touchDelegate = TouchDelegate(rect, binding.ivExit)
-                }
-            }
-        })
+
+        binding.fmExit.post {
+            val rect = Rect()
+            binding.ivExit.getHitRect(rect)
+            val extraSpace = ((binding.fmExit.layoutParams.width - binding.ivExit.layoutParams.width) / 2)
+            rect.top -= extraSpace
+            rect.bottom += extraSpace
+            rect.left -= extraSpace
+            rect.right += extraSpace
+            binding.fmExit.touchDelegate = TouchDelegate(rect, binding.ivExit)
+        }
         binding.searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
