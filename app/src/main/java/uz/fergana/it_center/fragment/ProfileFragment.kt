@@ -48,7 +48,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.rating.setOnClickListener {
-            val uri: Uri = Uri.parse("market://details?id=com.google.android.youtube")
+            val uri: Uri = Uri.parse("market://details?id=uz.fergana.it_center")
             val goToMarket = Intent(Intent.ACTION_VIEW, uri)
 
             goToMarket.addFlags(
@@ -62,17 +62,17 @@ class ProfileFragment : Fragment() {
                 startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.youtube")
+                        Uri.parse("https://play.google.com/store/apps/details?id=uz.fergana.it_center")
                     )
                 )
             }
         }
 
         binding.support.setOnClickListener {
-            val link = "https://t.me/ITCenter_support_bot" // Sizning linkingizni o'zgartiring
+            val link = "https://t.me/IT_center_supportbot" // Sizning linkingizni o'zgartiring
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
             startActivity(intent)
-            requireActivity().finish()
+
         }
 
         binding.logOut.setOnClickListener {

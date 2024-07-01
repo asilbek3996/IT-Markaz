@@ -166,9 +166,8 @@ class AllStudentActivity : AppCompatActivity() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(true)
-        dialog.setContentView(R.layout.about_custom_dialog)
+        dialog.setContentView(R.layout.about_custom_dialog_student)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
         val exit: ImageView = dialog.findViewById(R.id.exit)
         exit.setOnClickListener {
             dialog.dismiss()

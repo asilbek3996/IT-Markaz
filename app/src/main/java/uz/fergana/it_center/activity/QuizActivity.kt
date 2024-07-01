@@ -72,6 +72,7 @@ class QuizActivity : AppCompatActivity(), score {
                     val intent = Intent(this, QuizLevelActivity::class.java)
                     intent.putExtra("language",language)
                     startActivity(intent)
+                    timer.cancel()
                     finish()
                 }
 

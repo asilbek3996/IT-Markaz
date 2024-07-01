@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -58,7 +59,13 @@ class NotificationsActivity : AppCompatActivity() {
     }
 
     fun loadAdapter(it: ArrayList<Notification> = allNotification()){
-        binding.notificationRecycler.layoutManager = LinearLayoutManager(this)
-        binding.notificationRecycler.adapter = NotificationAdapter(it,this)
+
+        if (it.isEmpty()){
+            binding.linearLayout1.visibility = View.VISIBLE
+        }else{
+            binding.notificationRecycler.layoutManager = LinearLayoutManager(this)
+            binding.notificationRecycler.adapter = NotificationAdapter(it,this)
+            binding.linearLayout1.visibility = View.GONE
+        }
     }
 }

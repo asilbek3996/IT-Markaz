@@ -29,8 +29,9 @@ class SettingsActivity : AppCompatActivity() {
     }
     private fun shareApp() {
         val appMSG: String =
-            "Hello, I am using the IT Center application, I recommend you to download it from this link: " +
-                    "https://play.google.com/store/apps/details?id=com.example.smartshop"
+            "Salom, men IT Center Developers ilovasidan foydalanmoqdaman, uni ushbu havoladan " +
+                    "yuklab olishingizni tavsiya qilaman: " +
+                    "https://play.google.com/store/apps/details?id=uz.fergana.it_center"
         val intent = Intent()
         intent.action = Intent.ACTION_SEND
         intent.putExtra(Intent.EXTRA_TEXT, appMSG)

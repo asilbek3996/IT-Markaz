@@ -1,5 +1,6 @@
 package uz.fergana.it_center.fragment
 
+import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,9 +35,13 @@ class FavoriteFragment : Fragment(), ItemClickedListener {
         val pref = PrefUtils(requireContext())
         if (pref.getFavorite(Constants.favorite)?.isNotEmpty() == true) {
             items = pref.getFavorite(Constants.favorite)!!
+            binding.linearLayout1.visibility = View.GONE
+            binding.favoriteRecyclerView.visibility = View.VISIBLE
         }else{
             pref.clearFavorite()
             items = pref.getFavorite(Constants.favorite)!!
+            binding.linearLayout1.visibility = View.VISIBLE
+            binding.favoriteRecyclerView.visibility = View.GONE
         }
         binding.favoriteRecyclerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         adapter = SaveAdapter(items,this,this)

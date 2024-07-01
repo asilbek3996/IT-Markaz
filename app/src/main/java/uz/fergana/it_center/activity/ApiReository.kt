@@ -1,0 +1,1 @@
+package uz.fergana.it_center.activityimport kotlinx.coroutines.delayclass ApiReository {    suspend fun fetchData(): String {        // Simulate network delay        delay(2000)        return "API Response"    }}

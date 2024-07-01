@@ -41,12 +41,14 @@ class AllCategoryActivity : AppCompatActivity() {
 
 
 
-        binding.more.setOnClickListener {
-            showCustomDialogBox()
-        }
+
 
     viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         loadData()
+
+        binding.more.setOnClickListener {
+            showCustomDialogBox()
+        }
 
 
         // SearchView ning EditText elementini topish
@@ -178,7 +180,7 @@ class AllCategoryActivity : AppCompatActivity() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setCancelable(true)
-        dialog.setContentView(R.layout.about_custom_dialog)
+        dialog.setContentView(R.layout.about_custom_dialog_category)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val exit: ImageView = dialog.findViewById(R.id.exit)

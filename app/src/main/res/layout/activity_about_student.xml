@@ -78,20 +78,10 @@
         <FrameLayout
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:background="@drawable/appcompat_button"
             android:layout_gravity="center_horizontal"
             android:elevation="50dp"
             android:layout_marginTop="16dp">
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardCornerRadius="20dp"
-                android:layout_margin="4dp"
-                app:cardElevation="0dp">
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#88C60B">
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -107,9 +97,9 @@
                             app:civ_border_width="3dp"
                             app:civ_border_color="#005D38"/>
                     </androidx.cardview.widget.CardView>
-                </FrameLayout>
 
-            </androidx.cardview.widget.CardView>
+
+
         </FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"

@@ -11,7 +11,7 @@
     <FrameLayout
         android:id="@+id/ffContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/background22"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,30 +93,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textview"
-                    android:padding="2dp"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
-
-                    <androidx.cardview.widget.CardView
+                    <LinearLayout
+                        android:id="@+id/home"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="10dp">
+                        android:background="@drawable/textview"
+                        android:padding="2dp"
+                        android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/tvSubtitr"
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="8dp"
-                            android:text="Subtitr"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            android:textStyle="normal" />
-                    </androidx.cardview.widget.CardView>
+                            android:layout_height="wrap_content"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="10dp">
+
+                            <TextView
+                                android:id="@+id/tvSubtitr"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="8dp"
+                                android:text="Subtitr"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                android:textStyle="normal" />
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/homeWork"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="fjyfyjj"/>
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
         </LinearLayout>

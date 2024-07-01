@@ -171,32 +171,32 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical">
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_vertical"
-                                        android:layout_marginHorizontal="20dp"
-                                        android:layout_marginTop="15dp"
-                                        android:gravity="center_vertical"
-                                        android:orientation="horizontal">
+<!--                                    <LinearLayout-->
+<!--                                        android:layout_width="match_parent"-->
+<!--                                        android:layout_height="wrap_content"-->
+<!--                                        android:layout_gravity="center_vertical"-->
+<!--                                        android:layout_marginHorizontal="20dp"-->
+<!--                                        android:layout_marginTop="15dp"-->
+<!--                                        android:gravity="center_vertical"-->
+<!--                                        android:orientation="horizontal">-->
 
-                                        <View
-                                            android:layout_width="150dp"
-                                            android:layout_height="18dp"
-                                            android:background="@color/black" />
+<!--                                        <View-->
+<!--                                            android:layout_width="150dp"-->
+<!--                                            android:layout_height="18dp"-->
+<!--                                            android:background="@color/black" />-->
 
-                                        <TextView
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1" />
+<!--                                        <TextView-->
+<!--                                            android:layout_width="0dp"-->
+<!--                                            android:layout_height="wrap_content"-->
+<!--                                            android:layout_weight="1" />-->
 
-                                        <androidx.viewpager.widget.ViewPager
-                                            android:layout_width="80dp"
-                                            android:layout_height="20dp"
-                                            android:contentDescription="shimmer"
-                                            android:background="@color/black"/>
+<!--                                        <androidx.viewpager.widget.ViewPager-->
+<!--                                            android:layout_width="80dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:contentDescription="shimmer"-->
+<!--                                            android:background="@color/black"/>-->
 
-                                    </LinearLayout>
+<!--                                    </LinearLayout>-->
 
                                     <LinearLayout
                                         android:layout_width="match_parent"
@@ -248,17 +248,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
 
                                         <LinearLayout
@@ -302,17 +302,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
 
                                         <LinearLayout
@@ -356,17 +356,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>
@@ -384,21 +384,21 @@
                                         android:gravity="center_vertical"
                                         android:orientation="horizontal">
 
-                                        <View
-                                            android:layout_width="150dp"
-                                            android:layout_height="18dp"
-                                            android:background="@color/black" />
+<!--                                        <View-->
+<!--                                            android:layout_width="150dp"-->
+<!--                                            android:layout_height="18dp"-->
+<!--                                            android:background="@color/black" />-->
 
-                                        <TextView
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1" />
+<!--                                        <TextView-->
+<!--                                            android:layout_width="0dp"-->
+<!--                                            android:layout_height="wrap_content"-->
+<!--                                            android:layout_weight="1" />-->
 
-                                        <androidx.viewpager.widget.ViewPager
-                                            android:layout_width="80dp"
-                                            android:layout_height="20dp"
-                                            android:contentDescription="shimmer"
-                                            android:background="@color/black"/>
+<!--                                        <androidx.viewpager.widget.ViewPager-->
+<!--                                            android:layout_width="80dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:contentDescription="shimmer"-->
+<!--                                            android:background="@color/black"/>-->
 
                                     </LinearLayout>
 
@@ -452,17 +452,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
 
                                         <LinearLayout
@@ -506,17 +506,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
 
                                         <LinearLayout
@@ -560,17 +560,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>
@@ -588,21 +588,21 @@
                                         android:gravity="center_vertical"
                                         android:orientation="horizontal">
 
-                                        <View
-                                            android:layout_width="150dp"
-                                            android:layout_height="18dp"
-                                            android:background="@color/black" />
+<!--                                        <View-->
+<!--                                            android:layout_width="150dp"-->
+<!--                                            android:layout_height="18dp"-->
+<!--                                            android:background="@color/black" />-->
 
-                                        <TextView
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1" />
+<!--                                        <TextView-->
+<!--                                            android:layout_width="0dp"-->
+<!--                                            android:layout_height="wrap_content"-->
+<!--                                            android:layout_weight="1" />-->
 
-                                        <androidx.viewpager.widget.ViewPager
-                                            android:layout_width="80dp"
-                                            android:layout_height="20dp"
-                                            android:contentDescription="shimmer"
-                                            android:background="@color/black"/>
+<!--                                        <androidx.viewpager.widget.ViewPager-->
+<!--                                            android:layout_width="80dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:contentDescription="shimmer"-->
+<!--                                            android:background="@color/black"/>-->
 
                                     </LinearLayout>
 
@@ -656,17 +656,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
 
                                         <LinearLayout
@@ -710,17 +710,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
 
                                         <LinearLayout
@@ -764,17 +764,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>
@@ -792,21 +792,21 @@
                                         android:gravity="center_vertical"
                                         android:orientation="horizontal">
 
-                                        <View
-                                            android:layout_width="150dp"
-                                            android:layout_height="18dp"
-                                            android:background="@color/black" />
+<!--                                        <View-->
+<!--                                            android:layout_width="150dp"-->
+<!--                                            android:layout_height="18dp"-->
+<!--                                            android:background="@color/black" />-->
 
-                                        <TextView
-                                            android:layout_width="0dp"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1" />
+<!--                                        <TextView-->
+<!--                                            android:layout_width="0dp"-->
+<!--                                            android:layout_height="wrap_content"-->
+<!--                                            android:layout_weight="1" />-->
 
-                                        <androidx.viewpager.widget.ViewPager
-                                            android:layout_width="80dp"
-                                            android:layout_height="20dp"
-                                            android:contentDescription="shimmer"
-                                            android:background="@color/black"/>
+<!--                                        <androidx.viewpager.widget.ViewPager-->
+<!--                                            android:layout_width="80dp"-->
+<!--                                            android:layout_height="20dp"-->
+<!--                                            android:contentDescription="shimmer"-->
+<!--                                            android:background="@color/black"/>-->
 
                                     </LinearLayout>
 
@@ -860,17 +860,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
 
                                         <LinearLayout
@@ -914,17 +914,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
 
                                         <LinearLayout
@@ -968,17 +968,17 @@
                                                 </FrameLayout>
                                             </androidx.cardview.widget.CardView>
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="8dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="8dp"-->
+<!--                                                android:background="@color/black" />-->
 
-                                            <View
-                                                android:layout_width="match_parent"
-                                                android:layout_height="10dp"
-                                                android:layout_marginTop="2dp"
-                                                android:background="@color/black" />
+<!--                                            <View-->
+<!--                                                android:layout_width="match_parent"-->
+<!--                                                android:layout_height="10dp"-->
+<!--                                                android:layout_marginTop="2dp"-->
+<!--                                                android:background="@color/black" />-->
                                         </LinearLayout>
                                     </LinearLayout>
                                 </LinearLayout>
