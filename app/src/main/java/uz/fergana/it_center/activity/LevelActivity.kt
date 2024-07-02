@@ -17,7 +17,7 @@ class LevelActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         val message = intent.getStringExtra("Til")
-        viewModel.categoriesData.observe(this){
+        viewModel.courceData.observe(this){
             for (item in it){
                 if (item.language == message){
                     Glide.with(binding.img).load(item.image).into(binding.img)
@@ -68,6 +68,6 @@ class LevelActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
-        viewModel.getCategories()
+        viewModel.getAllDBCource()
     }
 }

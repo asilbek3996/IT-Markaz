@@ -16,7 +16,6 @@
     <string name="scratch_groups">Scratch Groups</string>
     <string name="frontend_groups">Frontend Groups</string>
     <string name="literacy_groups">Literacy Groups</string>
-    <string name="kotlin1">Kotlin-oʻzaro platformali, statik tarzda yozilgan, tip xulosasiga ega umumiy maqsadli dasturlash tili. Kotlin Java bilan toʻliq oʻzaro ishlash uchun moʻljallangan va Kotlin standart kutubxonasining JVM versiyasi Java sinf kutubxonasiga bogʻliq[2], lekin turdagi xulosalar uning sintaksisini yanada ixcham boʻlishiga imkon beradi. Kotlin asosan JVMni maqsad qilib oladi, lekin JavaScriptni (masalan, React[3] dan foydalanadigan frontend web-ilovalar uchun) yoki LLVM orqali mahalliy kodni (masalan, Android ilovalari bilan biznes mantiqini almashuvchi mahalliy iOS ilovalari uchun) kompilyatsiya qiladi[4]. Tilni rivojlantirish xarajatlari JetBrains tomonidan qoplanadi, Kotlin fondi esa Kotlin savdo belgisini himoya qiladi</string>
     <string name="parolingizni_kiriting">Parolingizni kiriting</string>
     <string name="back">Back</string>
     <string name="quiz">O\'yin</string>

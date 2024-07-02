@@ -6,12 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import uz.fergana.it_center.model.AllStudentModel
 import uz.fergana.it_center.model.CategoryModel
+import uz.fergana.it_center.model.CourceModel
 
 
-@Database(entities = [AllStudentModel::class, CategoryModel::class], version = 1)
+@Database(entities = [AllStudentModel::class, CategoryModel::class, CourceModel::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getStudentDao(): StudentsDao
     abstract fun getCategoryDao(): CategoryDao
+    abstract fun getCourceDao(): CourceDao
     companion object {
         var INSTANCE: AppDatabase? = null
         fun initDatabase(context: Context) {

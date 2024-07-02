@@ -11,6 +11,7 @@ import uz.fergana.it_center.api.NetworkManager
 import uz.fergana.it_center.model.AllCategoryModel
 import uz.fergana.it_center.model.AllStudentModel
 import uz.fergana.it_center.model.CategoryModel
+import uz.fergana.it_center.model.CourceModel
 import uz.fergana.it_center.model.DarslarModel
 import uz.fergana.it_center.model.ImageItem
 import uz.fergana.it_center.model.Notification
@@ -88,6 +89,31 @@ class Repository {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableObserver<List<CategoryModel>>() {
                     override fun onNext(t: List<CategoryModel>) {
+                        success.value = t
+                        progress.value = false
+                    }
+
+                    override fun onError(e: Throwable) {
+                        error.value = e.localizedMessage
+                        progress.value = false
+                    }
+
+                    override fun onComplete() {}
+                })
+        )
+    }
+    fun getCource(
+        error: MutableLiveData<String>,
+        success: MutableLiveData<List<CourceModel>>,
+        progress: MutableLiveData<Boolean>
+    ) {
+        progress.value = true
+        compositeDisposable.add(
+            NetworkManager.getApiService().getCourses()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(object : DisposableObserver<List<CourceModel>>() {
+                    override fun onNext(t: List<CourceModel>) {
                         success.value = t
                         progress.value = false
                     }

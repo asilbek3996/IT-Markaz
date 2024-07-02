@@ -12,8 +12,8 @@ class App: MultiDexApplication(){
         MultiDex.install(this)
         Hawk.init(this).build()
         AppDatabase.initDatabase(this)
-        val intent = Intent(this, uz.fergana.it_center.NotificationService::class.java)
+        val intent = Intent(this, NotificationService::class.java)
         startService(intent)
-        uz.fergana.it_center.schedulePollingWorker(this)
+        schedulePollingWorker(this)
     }
 }

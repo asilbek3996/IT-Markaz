@@ -130,7 +130,7 @@ class AllCategoryActivity : AppCompatActivity() {
         val filters: ArrayList<CategoryModel> = ArrayList()
         viewModel.categoriesData.observe(this, Observer {
             for (language in it){
-                if (language.language.toLowerCase().contains(text.toLowerCase())){
+                if (language.language!!.toLowerCase().contains(text.toLowerCase())){
                     filters.add(language)
                 }
             }

@@ -6,6 +6,7 @@ import retrofit2.http.GET
 import uz.fergana.it_center.model.AllCategoryModel
 import uz.fergana.it_center.model.AllStudentModel
 import uz.fergana.it_center.model.CategoryModel
+import uz.fergana.it_center.model.CourceModel
 import uz.fergana.it_center.model.DarslarModel
 import uz.fergana.it_center.model.ImageItem
 import uz.fergana.it_center.model.Notification
@@ -28,4 +29,6 @@ interface Api {
     fun getQuestions(): Observable<ArrayList<QuestionModel>>
     @GET("notification")
     fun getNotification(): Observable<ArrayList<Notification>>
+    @GET("courses")
+    fun getCourses(): Observable<ArrayList<CourceModel>>
 }

@@ -10,6 +10,7 @@ import uz.fergana.it_center.model.AllStudentModel
 interface StudentsDao {
     @Query("DELETE from students")
     fun deleteAll()
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllStudent(items: List<AllStudentModel>)
 

@@ -5,16 +5,16 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import uz.fergana.it_center.model.CategoryModel
+import uz.fergana.it_center.model.CourceModel
 
 
 @Dao
-interface CategoryDao {
-    @Query("DELETE from category")
-    fun deleteAllCategory()
-
+interface CourceDao {
+    @Query("DELETE from cource")
+    fun deleteAllCource()
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(items: List<CategoryModel>)
+    fun insertAll(items: List<CourceModel>)
 
-    @Query("select * from category")
-    fun getAllCategory(): List<CategoryModel>
+    @Query("select * from cource")
+    fun getAllCource(): List<CourceModel>
 }

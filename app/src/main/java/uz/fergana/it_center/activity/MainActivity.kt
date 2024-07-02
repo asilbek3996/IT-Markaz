@@ -139,6 +139,9 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
         viewModel.categoriesData.observe(this) {
             viewModel.insertAllDBCategories(it)
         }
+        viewModel.courceData.observe(this) {
+            viewModel.insertAllDBCource(it)
+        }
         viewModel.progress.observe(this) {
             if (it) {
                 showProgressBar()
@@ -182,30 +185,31 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
             checkNotification()
         }
     }
-    fun clearFavorite() {
-        var pref = PrefUtils(this@MainActivity)
-        val alertDialogBuilder = AlertDialog.Builder(this)
-        alertDialogBuilder.setMessage("Tanlanganlarni tozalab yuborasizmi")
-        alertDialogBuilder.setPositiveButton(
-            "Ha"
-        ) { dialog, which ->
-            pref.clearFavorite()
-            favoriteFragment.updateData()
-            dialog.dismiss()
-        }
-        alertDialogBuilder.setNegativeButton(
-            "Yo'q"
-        ) { dialog, which ->
-            dialog.dismiss()
-        }
-        alertDialogBuilder.setCancelable(false)
-        val alertDialog = alertDialogBuilder.create()
-        alertDialog.show()
-    }
+//    fun clearFavorite() {
+//        var pref = PrefUtils(this@MainActivity)
+//        val alertDialogBuilder = AlertDialog.Builder(this)
+//        alertDialogBuilder.setMessage("Tanlanganlarni tozalab yuborasizmi")
+//        alertDialogBuilder.setPositiveButton(
+//            "Ha"
+//        ) { dialog, which ->
+//            pref.clearFavorite()
+//            favoriteFragment.updateData()
+//            dialog.dismiss()
+//        }
+//        alertDialogBuilder.setNegativeButton(
+//            "Yo'q"
+//        ) { dialog, which ->
+//            dialog.dismiss()
+//        }
+//        alertDialogBuilder.setCancelable(false)
+//        val alertDialog = alertDialogBuilder.create()
+//        alertDialog.show()
+//    }
 
     private fun loadData() {
         viewModel.getStudent()
         viewModel.getCategories()
+        viewModel.getCource()
     }
 
     override fun showProgressBar() {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/background22"
+    tools:context=".activity.RegistrationActivity">
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sizning ID raqamingiz"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="32dp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:textColor="#000"
+        android:layout_marginHorizontal="32dp"
+        android:inputType="phone"
+        android:foregroundTint="#3A8358"
+        android:textColorHint="@color/black"
+        android:background="@drawable/edit_text_background"
+        android:hint="+998 ** *** ** **" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="KIRISH"
+        android:textColor="@color/white"
+        style="@android:style/Widget.Button"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_background"/>
+    <ProgressBar
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:id="@+id/progress_bar"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="32dp"/>
+</LinearLayout>

@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,14 +17,18 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.google.android.play.integrity.internal.i
 import uz.fergana.it_center.activity.AllCategoryActivity
 import uz.fergana.it_center.ShowProgress
 import uz.fergana.it_center.activity.LevelActivity
+import uz.fergana.it_center.activity.RegisterActivity
+import uz.fergana.it_center.activity.RegistrationActivity
 import uz.fergana.it_center.adapter.ImageAdapter
 import uz.fergana.it_center.adapter.TopStudentAdapter
 import uz.fergana.it_center.databinding.FragmentHomeBinding
 import uz.fergana.it_center.model.AllStudentModel
 import uz.fergana.it_center.model.CategoryModel
+import uz.fergana.it_center.model.CourceModel
 import uz.fergana.it_center.model.GroupModel
 import uz.fergana.it_center.model.viewmodel.MainViewModel
 import uz.fergana.it_center.utils.Constants
@@ -36,6 +41,7 @@ class HomeFragment : Fragment() {
     var handler = Handler()
     lateinit var viewModel: MainViewModel
     var item = arrayListOf<CategoryModel>()
+    var cource = arrayListOf<CourceModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
@@ -67,29 +73,36 @@ class HomeFragment : Fragment() {
             (activity as? ShowProgress.View)?.refresh()
         }
 
+        binding.tvAllCource.setOnClickListener {
+            startActivity(Intent(requireContext(), AllCategoryActivity::class.java))
+        }
         binding.tvAll.setOnClickListener {
             startActivity(Intent(requireContext(), AllCategoryActivity::class.java))
         }
         val intent = Intent(requireContext(), LevelActivity::class.java)
+        binding.cource1.setOnClickListener {
+            intent.apply {
+                putExtra("Til", cource[0].language)
+            }
+            startActivity(intent)
+        }
+        binding.course2.setOnClickListener {
+            intent.apply {
+                putExtra("Til", cource[1].language)
+            }
+            startActivity(intent)
+        }
+        binding.cource3.setOnClickListener {
+            intent.apply {
+                putExtra("Til", cource[2].language)
+            }
+            startActivity(intent)
+        }
         binding.category1.setOnClickListener {
-            intent.apply {
-                putExtra("Til", item[0].language)
-            }
-            startActivity(intent)
-        }
-        binding.category2.setOnClickListener {
-            intent.apply {
-                putExtra("Til", item[1].language)
-            }
-            startActivity(intent)
-        }
-        binding.category3.setOnClickListener {
-            intent.apply {
-                putExtra("Til", item[2].language)
-            }
-            startActivity(intent)
+            startActivity(Intent(requireContext(),RegistrationActivity::class.java))
         }
         viewModel.studentData.observe(requireActivity(), Observer {
+            topTest(it)
                 viewModel.shimmer.observe(requireActivity()) { status ->
                     when (status) {
                         0 -> {
@@ -99,9 +112,9 @@ class HomeFragment : Fragment() {
 
                         1 -> {
                             Handler().postDelayed({
+                                Toast.makeText(requireContext(), "${it.size}", Toast.LENGTH_SHORT).show()
                                 binding.swipe.visibility = View.VISIBLE
                                 binding.shimmerLayout.visibility = View.GONE
-                                topTest(it)
                             }, 1000)
                         }
 
@@ -133,7 +146,29 @@ class HomeFragment : Fragment() {
             }
         })
         viewModel.categoriesData.observe(requireActivity(), Observer {
-            categories(it)
+            if (it.isNotEmpty()) {
+                categories(it)
+            }else{
+                showErrorDialog()
+            }
+        })
+        viewModel.courceData.observe(requireActivity(), Observer {
+            Toast.makeText(requireContext(), "${it.size}", Toast.LENGTH_SHORT).show()
+            var pref = PrefUtils(requireContext())
+            if (it.isNotEmpty()) {
+                if (pref.getID()!=0) {
+                    var userC = it.filter { it.language == pref.getStudent(Constants.g) }
+                    userCource(userC[0])
+                    binding.notUser.visibility = View.GONE
+                    binding.userCource.visibility = View.VISIBLE
+                }else {
+                    cource(it)
+                    binding.notUser.visibility = View.VISIBLE
+                    binding.userCource.visibility = View.GONE
+                }
+            }else{
+                showErrorDialog()
+            }
         })
     }
 
@@ -176,66 +211,37 @@ class HomeFragment : Fragment() {
 
         binding.viewPager.setPageTransformer(transformer)
     }
-
     fun loadData() {
         viewModel.getOffers()
-        viewModel.getCategories()
+        viewModel.getAllDBCategory()
+        viewModel.getAllDBCource()
         viewModel.getAllStudents()
     }
 
     private fun topTest(students: List<AllStudentModel>) {
         val pref = PrefUtils(requireContext())
-        var android = arrayListOf<AllStudentModel>()
-        var python = arrayListOf<AllStudentModel>()
-        var java = arrayListOf<AllStudentModel>()
-        var kotlin = arrayListOf<AllStudentModel>()
-        var cpp = arrayListOf<AllStudentModel>()
-        var computerLiteracy = arrayListOf<AllStudentModel>()
-        var scratch = arrayListOf<AllStudentModel>()
-        var frontend = arrayListOf<AllStudentModel>()
-        var backend = arrayListOf<AllStudentModel>()
-        for (student in students) {
-            if (student.group == "Android") {
-                android.add(student)
-            } else if (student.group == "Python") {
-                python.add(student)
-            } else if (student.group == "Kotlin") {
-                kotlin.add(student)
-            } else if (student.group == "Java") {
-                java.add(student)
-            } else if (student.group == "C++") {
-                cpp.add(student)
-            } else if (student.group == "Scratch") {
-                scratch.add(student)
-            } else if (student.group == "Literacy") {
-                computerLiteracy.add(student)
-            } else if (student.group == "Frontend") {
-                frontend.add(student)
-            } else if (student.group == "Backend") {
-                backend.add(student)
-            }
-        }
         var group = arrayListOf<GroupModel>()
-        var item = arrayListOf<GroupModel>()
-        var items = listOf(
-            GroupModel("Java", java, "Java"),
-            GroupModel("Kotlin", kotlin, "Kotlin"),
-            GroupModel("Android", android, "Android"),
-            GroupModel("Python", python, "Python"),
-            GroupModel("C++", cpp, "C++"),
-            GroupModel("Kompyuter Savodxonligi", computerLiteracy, "Literacy"),
-            GroupModel("Scratch", scratch, "Scratch"),
-            GroupModel("Frontend", frontend, "Frontend"),
-            GroupModel("Backend", backend, "Backend"),
-        )
-        for (it in items) {
-            if (it.group == pref.getStudent(Constants.group)) {
-                group.add(it)
-            } else {
-                item.add(it)
+        var groupName = arrayListOf<String>()
+        viewModel.courceData.observe(requireActivity()){
+            for (i in it){
+                if (pref.getID()==0) {
+                    groupName.add(i.language.toString())
+                }else{
+                    if (pref.getStudent(Constants.g)==i.language){
+                        groupName.add(i.language.toString())
+                    }
+                }
             }
         }
-        group.addAll(item)
+for (name in groupName){
+    var item = arrayListOf<AllStudentModel>()
+    for (student in students) {
+        if (student.group == name) {
+            item.add(student)
+        }
+    }
+    group.add(GroupModel(name,item,name))
+}
         binding.recyclerGroup.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.recyclerGroup.adapter = TopStudentAdapter(group)
@@ -258,6 +264,19 @@ class HomeFragment : Fragment() {
         binding.nameCategory1.text = item[0].language
         binding.nameCategory2.text = item[1].language
         binding.nameCategory3.text = item[2].language
+    }
+    private fun cource(c: List<CourceModel>) {
+        cource.addAll(c)
+        Glide.with(binding.imgCource1).load(cource[0].image).into(binding.imgCource1)
+        Glide.with(binding.imgCource2).load(cource[1].image).into(binding.imgCource2)
+        Glide.with(binding.imgCource3).load(cource[2].image).into(binding.imgCource3)
+        binding.nameCource1.text = cource[0].language
+        binding.nameCource2.text = cource[1].language
+        binding.nameCourse3.text = cource[2].language
+    }
+    private fun userCource(userCource: CourceModel) {
+        Glide.with(binding.userCourceImage).load(userCource.levelImage).into(binding.userCourceImage)
+        binding.userCourceName.text = userCource.language
     }
 
 }
