@@ -24,29 +24,19 @@ class DarsAdapter(var items: ArrayList<DarslarModel>): RecyclerView.Adapter<Dars
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         val item = items[position]
         var pref = PrefUtils(holder.itemView.context)
-        var lesson = pref.getLesson()
-        if (position<lesson){
+        if (pref.checkFinishLesson(item.id)){
             holder.binding.time.setImageResource(R.drawable.check)
-            holder.itemView.setOnClickListener {
-                val intent = Intent(it.context, VideoActivity::class.java)
-                intent.putExtra("video", item.id)
-                it.context.startActivity(intent)
-            }
-        }else if (position==lesson){
-            holder.binding.time.setImageResource(R.drawable.play)
-            holder.itemView.setOnClickListener {
-                val intent = Intent(it.context, VideoActivity::class.java)
-                intent.putExtra("video", item.id)
-                it.context.startActivity(intent)
-            }
         }else {
             holder.binding.time.setImageResource(R.drawable.clock)
+        }
             holder.itemView.setOnClickListener {
                 val intent = Intent(it.context, VideoActivity::class.java)
                 intent.putExtra("video", item.id)
+                intent.putExtra("lessonName", item.languageName)
+                intent.putExtra("Til",item.languageName)
+                intent.putExtra("level",item.level)
                 it.context.startActivity(intent)
             }
-        }
         var txt = position+1
         holder.binding.tvName.text = "${txt}-dars. ${item.lessonName}"
     }

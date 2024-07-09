@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -25,6 +26,7 @@ import uz.fergana.it_center.activity.RegisterActivity
 import uz.fergana.it_center.activity.RegistrationActivity
 import uz.fergana.it_center.adapter.ImageAdapter
 import uz.fergana.it_center.adapter.TopStudentAdapter
+import uz.fergana.it_center.adapter.TopStudentAdapterUSER
 import uz.fergana.it_center.databinding.FragmentHomeBinding
 import uz.fergana.it_center.model.AllStudentModel
 import uz.fergana.it_center.model.CategoryModel
@@ -59,6 +61,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadData()
+        var pref = PrefUtils(requireContext())
+        var idRaqami = pref.getID()
         viewModel.progress.observe(requireActivity(), Observer {
             binding.swipe.isRefreshing = it
             if (it) {
@@ -76,33 +80,62 @@ class HomeFragment : Fragment() {
         binding.tvAllCource.setOnClickListener {
             startActivity(Intent(requireContext(), AllCategoryActivity::class.java))
         }
-        binding.tvAll.setOnClickListener {
-            startActivity(Intent(requireContext(), AllCategoryActivity::class.java))
-        }
+        var userCource: CourceModel? = null
+        viewModel.courceData.observe(requireActivity(), Observer {
+            if (it.isNotEmpty()) {
+                if (pref.getID()!=0) {
+                    var userC = it.filter { it.language == pref.getStudent(Constants.g) }
+                    userCource(userC[0])
+                    userCource = userC[0]
+                    binding.notUser.visibility = View.GONE
+                    binding.userCource.visibility = View.VISIBLE
+                }else {
+                    cource(it)
+                    binding.notUser.visibility = View.VISIBLE
+                    binding.userCource.visibility = View.GONE
+                }
+            }else{
+                showErrorDialog()
+            }
+        })
+        val intentCource = Intent(requireContext(), RegistrationActivity::class.java)
         val intent = Intent(requireContext(), LevelActivity::class.java)
         binding.cource1.setOnClickListener {
-            intent.apply {
+            intentCource.apply {
                 putExtra("Til", cource[0].language)
             }
-            startActivity(intent)
+            startActivity(intentCource)
         }
         binding.course2.setOnClickListener {
-            intent.apply {
+            intentCource.apply {
                 putExtra("Til", cource[1].language)
             }
-            startActivity(intent)
+            startActivity(intentCource)
         }
         binding.cource3.setOnClickListener {
-            intent.apply {
+            intentCource.apply {
                 putExtra("Til", cource[2].language)
+            }
+            startActivity(intentCource)
+        }
+
+        binding.userCource.setOnClickListener {
+            intent.apply {
+                putExtra("Til", userCource?.language)
             }
             startActivity(intent)
         }
-        binding.category1.setOnClickListener {
-            startActivity(Intent(requireContext(),RegistrationActivity::class.java))
-        }
+
         viewModel.studentData.observe(requireActivity(), Observer {
-            topTest(it)
+            if (pref.getID()!=0) {
+                binding.recyclerGroupNOT.visibility = View.GONE
+                binding.recyclerGroupUSER.visibility = View.VISIBLE
+                userGroup(it)
+            }else {
+                binding.recyclerGroupNOT.visibility = View.VISIBLE
+                binding.recyclerGroupUSER.visibility = View.GONE
+                topNotUserGroup(it)
+            }
                 viewModel.shimmer.observe(requireActivity()) { status ->
                     when (status) {
                         0 -> {
@@ -112,7 +145,6 @@ class HomeFragment : Fragment() {
 
                         1 -> {
                             Handler().postDelayed({
-                                Toast.makeText(requireContext(), "${it.size}", Toast.LENGTH_SHORT).show()
                                 binding.swipe.visibility = View.VISIBLE
                                 binding.shimmerLayout.visibility = View.GONE
                             }, 1000)
@@ -145,31 +177,13 @@ class HomeFragment : Fragment() {
                 handler.postDelayed(runnable, 2000)
             }
         })
-        viewModel.categoriesData.observe(requireActivity(), Observer {
-            if (it.isNotEmpty()) {
-                categories(it)
-            }else{
-                showErrorDialog()
-            }
-        })
-        viewModel.courceData.observe(requireActivity(), Observer {
-            Toast.makeText(requireContext(), "${it.size}", Toast.LENGTH_SHORT).show()
-            var pref = PrefUtils(requireContext())
-            if (it.isNotEmpty()) {
-                if (pref.getID()!=0) {
-                    var userC = it.filter { it.language == pref.getStudent(Constants.g) }
-                    userCource(userC[0])
-                    binding.notUser.visibility = View.GONE
-                    binding.userCource.visibility = View.VISIBLE
-                }else {
-                    cource(it)
-                    binding.notUser.visibility = View.VISIBLE
-                    binding.userCource.visibility = View.GONE
-                }
-            }else{
-                showErrorDialog()
-            }
-        })
+//        viewModel.categoriesData.observe(requireActivity(), Observer {
+//            if (it.isNotEmpty()) {
+//                categories(it)
+//            }else{
+//                showErrorDialog()
+//            }
+//        })
     }
 
     companion object {
@@ -213,15 +227,15 @@ class HomeFragment : Fragment() {
     }
     fun loadData() {
         viewModel.getOffers()
-        viewModel.getAllDBCategory()
         viewModel.getAllDBCource()
         viewModel.getAllStudents()
     }
 
-    private fun topTest(students: List<AllStudentModel>) {
+    private fun topNotUserGroup(students: List<AllStudentModel>) {
         val pref = PrefUtils(requireContext())
         var group = arrayListOf<GroupModel>()
         var groupName = arrayListOf<String>()
+        binding.groupMenu.visibility = View.GONE
         viewModel.courceData.observe(requireActivity()){
             for (i in it){
                 if (pref.getID()==0) {
@@ -242,31 +256,46 @@ for (name in groupName){
     }
     group.add(GroupModel(name,item,name))
 }
-        binding.recyclerGroup.layoutManager =
+        binding.recyclerGroupNOT.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.recyclerGroup.adapter = TopStudentAdapter(group)
+        binding.recyclerGroupNOT.adapter = TopStudentAdapter(group)
     }
-
-    private fun categories(category: List<CategoryModel>) {
-        var pref = PrefUtils(requireContext())
-        var item2 = arrayListOf<CategoryModel>()
-        for (it in category) {
-            if (it.language == pref.getStudent(Constants.g)) {
-                item.add(it)
-            } else {
-                item2.add(it)
+    private fun userGroup(students: List<AllStudentModel>) {
+        val pref = PrefUtils(requireContext())
+        var userGroup = arrayListOf<AllStudentModel>()
+        var groupName = arrayListOf<String>()
+        binding.groupMenu.visibility = View.VISIBLE
+        viewModel.courceData.observe(requireActivity()){
+            for (i in it){
+                if (pref.getID()==0) {
+                    groupName.add(i.language.toString())
+                }else{
+                    if (pref.getStudent(Constants.g)==i.language){
+                        groupName.add(i.language.toString())
+                    }
+                }
             }
         }
-        item.addAll(item2)
-        Glide.with(binding.imgCategory1).load(item[0].image).into(binding.imgCategory1)
-        Glide.with(binding.imgCategory2).load(item[1].image).into(binding.imgCategory2)
-        Glide.with(binding.imgCategory3).load(item[2].image).into(binding.imgCategory3)
-        binding.nameCategory1.text = item[0].language
-        binding.nameCategory2.text = item[1].language
-        binding.nameCategory3.text = item[2].language
+for (name in groupName){
+    var item = arrayListOf<AllStudentModel>()
+    for (student in students) {
+        if (student.group == name) {
+            item.add(student)
+        }
     }
+    binding.groupName.text = "Kursdoshlaringiz"
+    userGroup.addAll(item)
+}
+        var top = userGroup.sortedByDescending { it.userPercentage }
+        binding.recyclerGroupUSER.layoutManager =
+            GridLayoutManager(requireContext(), 3)
+        binding.recyclerGroupUSER.adapter = TopStudentAdapterUSER(top)
+    }
+
     private fun cource(c: List<CourceModel>) {
+        binding.allMenu.visibility = View.VISIBLE
         cource.addAll(c)
+        binding.courseTXT.text = "Kurslar"
         Glide.with(binding.imgCource1).load(cource[0].image).into(binding.imgCource1)
         Glide.with(binding.imgCource2).load(cource[1].image).into(binding.imgCource2)
         Glide.with(binding.imgCource3).load(cource[2].image).into(binding.imgCource3)
@@ -275,8 +304,8 @@ for (name in groupName){
         binding.nameCourse3.text = cource[2].language
     }
     private fun userCource(userCource: CourceModel) {
-        Glide.with(binding.userCourceImage).load(userCource.levelImage).into(binding.userCourceImage)
-        binding.userCourceName.text = userCource.language
+        binding.allMenu.visibility = View.GONE
+        binding.userCource.text = "Sizning kursinghiz ${userCource.language}"
     }
 
 }

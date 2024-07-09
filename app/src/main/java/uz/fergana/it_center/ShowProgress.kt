@@ -6,5 +6,6 @@ interface ShowProgress {
         fun hideProgressBar()
         fun refresh()
         fun again()
+        fun login()
     }
 }

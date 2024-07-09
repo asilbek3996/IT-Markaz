@@ -99,6 +99,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             app:cardElevation="0dp"
+                            app:cardBackgroundColor="#00EFEFEF"
                             app:cardCornerRadius="16dp">
                             <ImageView
                                 android:id="@+id/img1"
@@ -195,6 +196,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             app:cardElevation="0dp"
+                            app:cardBackgroundColor="#00EFEFEF"
                             app:cardCornerRadius="16dp">
                             <ImageView
                                 android:id="@+id/img2"
@@ -291,6 +293,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             app:cardElevation="0dp"
+                            app:cardBackgroundColor="#00EFEFEF"
                             app:cardCornerRadius="16dp">
                             <ImageView
                                 android:id="@+id/img3"

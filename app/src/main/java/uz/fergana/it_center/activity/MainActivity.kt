@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -119,22 +120,15 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
 
             true
         }
-//        binding.favoriteRemove.setOnClickListener {
-//            if (pref.getFavorite(Constants.favorite).isNullOrEmpty()) {
-//                Toast.makeText(
-//                    this,
-//                    "Siz hali hech qaysi videoni tanlamadingiz",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            } else {
-//                clearFavorite()
-//            }
-//        }
-        viewModel.studentData.observe(this) {
-            if (it != null) {
-                viewModel.insertAllDBStudents(it)
+        viewModel.studentData.observe(this) { i->
+                viewModel.insertAllDBStudents(i)
                 EventBus.getDefault().post(loadData())
-            }
+                var idRaqami = pref.getID()
+
+                var user = i.filter { it.id==idRaqami }
+                if (user.isNullOrEmpty()){
+                    pref.clear()
+                }
         }
         viewModel.categoriesData.observe(this) {
             viewModel.insertAllDBCategories(it)
@@ -228,7 +222,20 @@ class MainActivity : AppCompatActivity(), ShowProgress.View {
     }
 
     override fun again() {
+        loadData()
         homeFragment.loadData()
+    }
+
+    override fun login() {
+        supportFragmentManager.beginTransaction().hide(activeFragment).show(profileFragment)
+            .commit()
+        activeFragment = profileFragment
+        binding.tvMain.text = "Hisob"
+        binding.refreshMain.visibility = View.GONE
+        binding.refreshProgressMain.visibility = View.GONE
+        binding.refreshDialog.visibility = View.GONE
+        binding.fmNotification.visibility = View.GONE
+        binding.bottomNavigationView.selectedItemId = R.id.actionProfile
     }
 
 

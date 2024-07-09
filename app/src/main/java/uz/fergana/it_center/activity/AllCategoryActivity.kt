@@ -37,12 +37,6 @@ class AllCategoryActivity : AppCompatActivity() {
         binding = ActivityAllCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-
-
-
-
     viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         loadData()
 
@@ -51,6 +45,14 @@ class AllCategoryActivity : AppCompatActivity() {
         }
 
 
+        viewModel.courceData.observe(this) {
+            binding.recyclerAllCategory.layoutManager = GridLayoutManager(this, 3)
+            binding.recyclerAllCategory.adapter = AllCategoryAdapter(it)
+        }
+
+        binding.back.setOnClickListener {
+            finish()
+        }
         // SearchView ning EditText elementini topish
 //        val searchEditText = binding.searchview.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
 
@@ -58,9 +60,6 @@ class AllCategoryActivity : AppCompatActivity() {
 //        searchEditText.setTextColor(Color.BLACK)
 //        searchEditText.setHintTextColor(Color.BLACK)
 
-        binding.back.setOnClickListener {
-            finish()
-        }
 
 //        binding.search.setOnClickListener {
 //            toggleLayoutVisibility()
@@ -81,11 +80,6 @@ class AllCategoryActivity : AppCompatActivity() {
 //            rect.right += extraSpace
 //            binding.fmExit.touchDelegate = TouchDelegate(rect, binding.ivExit)
 //        }
-        viewModel.categoriesData.observe(this@AllCategoryActivity){
-            adapter = SearchCategoryAdapter(it)
-            binding.recyclerSearchCategory.layoutManager = GridLayoutManager(this@AllCategoryActivity, 3)
-            binding.recyclerSearchCategory.adapter = adapter
-        }
 //        binding.searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 //            override fun onQueryTextSubmit(query: String?): Boolean {
 //                return false
@@ -114,41 +108,35 @@ class AllCategoryActivity : AppCompatActivity() {
 //                return true
 //            }
 //        })
-
-
-        viewModel.categoriesData.observe(this) {
-            binding.recyclerAllCategory.layoutManager = GridLayoutManager(this, 3)
-            binding.recyclerAllCategory.adapter = AllCategoryAdapter(it)
-        }
     }
     fun loadData(){
-        viewModel.getAllDBCategory()
+        viewModel.getAllDBCource()
     }
 
 
-    fun filter(text: String){
-        val filters: ArrayList<CategoryModel> = ArrayList()
-        viewModel.categoriesData.observe(this, Observer {
-            for (language in it){
-                if (language.language!!.toLowerCase().contains(text.toLowerCase())){
-                    filters.add(language)
-                }
-            }
-            adapter.filter(filters)
-        })
-    }
+//    fun filter(text: String){
+//        val filters: ArrayList<CategoryModel> = ArrayList()
+//        viewModel.categoriesData.observe(this, Observer {
+//            for (language in it){
+//                if (language.language!!.toLowerCase().contains(text.toLowerCase())){
+//                    filters.add(language)
+//                }
+//            }
+//            adapter.filter(filters)
+//        })
+//    }
 
-    private fun animateButton(button: ImageView) {
-        val scaleX = ObjectAnimator.ofFloat(button, "scaleX", 1.0f, 1.2f, 1.0f)
-        val scaleY = ObjectAnimator.ofFloat(button, "scaleY", 1.0f, 1.2f, 1.0f)
-
-        // AnimatorSet - bir nechta animatsiyalarni birlashtirish uchun
-        val animatorSet = AnimatorSet()
-        animatorSet.playTogether(scaleX, scaleY)
-        animatorSet.duration = 300 // Animatsiya davomiyligi
-        animatorSet.start()
-    }
-    private fun toggleLayoutVisibility() {
+//    private fun animateButton(button: ImageView) {
+//        val scaleX = ObjectAnimator.ofFloat(button, "scaleX", 1.0f, 1.2f, 1.0f)
+//        val scaleY = ObjectAnimator.ofFloat(button, "scaleY", 1.0f, 1.2f, 1.0f)
+//
+//        // AnimatorSet - bir nechta animatsiyalarni birlashtirish uchun
+//        val animatorSet = AnimatorSet()
+//        animatorSet.playTogether(scaleX, scaleY)
+//        animatorSet.duration = 300 // Animatsiya davomiyligi
+//        animatorSet.start()
+//    }
+//    private fun toggleLayoutVisibility() {
         // SearchViewning joriy visibility holatini aniqlash
 //        val currentVisibility = binding.search.visibility
         // Agar SearchView ko'rsatilmoqda bo'lsa
@@ -175,7 +163,7 @@ class AllCategoryActivity : AppCompatActivity() {
 //            dialog.show()
 //        }
 
-    }
+//    }
     private fun showCustomDialogBox() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)

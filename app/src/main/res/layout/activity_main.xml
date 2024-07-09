@@ -154,7 +154,7 @@
                 android:background="@drawable/appcompat_buttonn"
                 app:itemIconTint="@drawable/bottom_nav_view_item"
                 app:itemRippleColor="@color/light_green"
-                app:labelVisibilityMode="labeled"
+                app:labelVisibilityMode="selected"
                 app:itemTextColor="@color/black"
                 app:menu="@menu/nav_view" />
         </LinearLayout>

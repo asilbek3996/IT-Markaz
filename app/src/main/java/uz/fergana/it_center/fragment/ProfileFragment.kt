@@ -138,7 +138,6 @@ class ProfileFragment : Fragment() {
     }
     fun login(email: String?){
         changeInProgress(true)
-        (activity as? ShowProgress.View)?.again()
         viewModel.userData.observe(requireActivity(), Observer {
             for (student in it){
                 if (student.id.toString() == email){
@@ -151,6 +150,7 @@ class ProfileFragment : Fragment() {
                     binding.profile.visibility = View.VISIBLE
                     binding.logInPage.visibility = View.GONE
                     binding.etEmail.text.clear()
+                    (activity as? ShowProgress.View)?.again()
                 }else{
                     validateDate(null)
                     changeInProgress(false)

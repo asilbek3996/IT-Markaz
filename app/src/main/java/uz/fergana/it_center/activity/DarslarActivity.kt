@@ -145,6 +145,14 @@ class DarslarActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val message = intent.getStringExtra("Til")
+        val level = intent.getStringExtra("level")
+        if (message != null && level != null) {
+                loadData(message,level)
+        }
+    }
     fun filter(message: String, languge: String, level: String) {
         var kotlin = arrayListOf<DarslarModel>()
         viewModel.lessonsData.observe(this, Observer {

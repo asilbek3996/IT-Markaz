@@ -6,10 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import uz.fergana.it_center.activity.DarslarActivity
+import uz.fergana.it_center.activity.RegistrationActivity
 import uz.fergana.it_center.databinding.AllCategoryItemLayoutBinding
 import uz.fergana.it_center.model.CategoryModel
+import uz.fergana.it_center.model.CourceModel
 
-class SearchCategoryAdapter(var items: List<CategoryModel>): RecyclerView.Adapter<SearchCategoryAdapter.ItemHolder>() {
+class SearchCategoryAdapter(var items: List<CourceModel>): RecyclerView.Adapter<SearchCategoryAdapter.ItemHolder>() {
     inner class ItemHolder(val binding: AllCategoryItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -34,13 +36,13 @@ class SearchCategoryAdapter(var items: List<CategoryModel>): RecyclerView.Adapte
 //            .into(holder.binding.caytegoryImg)
         holder.binding.categoryTxt.text = item.language
         holder.itemView.setOnClickListener {
-            val intent = Intent(it.context, DarslarActivity::class.java)
+            val intent = Intent(it.context, RegistrationActivity::class.java)
             intent.putExtra("Til", item.language)
             it.context.startActivity(intent)
         }
     }
 
-    fun filter(filter: List<CategoryModel>) {
+    fun filter(filter: List<CourceModel>) {
         items = filter
         notifyDataSetChanged()
     }

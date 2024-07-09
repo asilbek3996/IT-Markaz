@@ -17,6 +17,7 @@ class RegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val message = intent.getStringExtra("Til")
         binding.btnLogin.setOnClickListener {
             var phone = binding.etPhone.text.toString()
             var text = "telefon raqami: \n$phone"

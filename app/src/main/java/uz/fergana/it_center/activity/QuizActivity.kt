@@ -127,6 +127,7 @@ class QuizActivity : AppCompatActivity(), score {
 
         if (position < receivedList.size - 1) {
             position++
+            javob="0"
             binding.progressBar.progress += 1
             binding.questionNumberTxt.text = "Savollar ${binding.progressBar.progress}/${receivedList.size}"
             binding.questionTxt.text = receivedList[position].question
@@ -206,6 +207,7 @@ class QuizActivity : AppCompatActivity(), score {
         timer.start()  // Start the new timer
     }
     fun timeOut(){
+        javob="0"
             val alertDialogBuilder = AlertDialog.Builder(this)
             alertDialogBuilder.setMessage("Sizning vaqtingiz tugadi testlarni qaytadan yeching yoki orqga qayting")
             alertDialogBuilder.setPositiveButton("Qayta boshlash", DialogInterface.OnClickListener { dialog, which ->
@@ -240,8 +242,10 @@ class QuizActivity : AppCompatActivity(), score {
             wrongAnswersCount += wrongAnswer
             score += number
             receivedList[position].clickedAnswer = clickedAnswer
+        var l = lan("0",false)
         if (rightAnswer == 1){
             javob = "ok"
+//            moveToNextQuestion(l)
         }else{
             javob = "no"
         }

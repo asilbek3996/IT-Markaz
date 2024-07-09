@@ -6,10 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import uz.fergana.it_center.activity.LevelActivity
+import uz.fergana.it_center.activity.RegistrationActivity
 import uz.fergana.it_center.databinding.AllCategoryItemLayoutBinding
 import uz.fergana.it_center.model.CategoryModel
+import uz.fergana.it_center.model.CourceModel
 
-class AllCategoryAdapter(var items: List<CategoryModel>): RecyclerView.Adapter<AllCategoryAdapter.ItemHolder>() {
+class AllCategoryAdapter(var items: List<CourceModel>): RecyclerView.Adapter<AllCategoryAdapter.ItemHolder>() {
     inner class ItemHolder(val binding: AllCategoryItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -34,7 +36,7 @@ class AllCategoryAdapter(var items: List<CategoryModel>): RecyclerView.Adapter<A
 //            .into(holder.binding.caytegoryImg)
         holder.binding.categoryTxt.text = item.language
         holder.itemView.setOnClickListener {
-            val intent = Intent(it.context, LevelActivity::class.java)
+            val intent = Intent(it.context, RegistrationActivity::class.java)
             intent.putExtra("Til", item.language)
             it.context.startActivity(intent)
         }

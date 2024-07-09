@@ -123,4 +123,25 @@ class PrefUtils(context: Context) {
         val intList: ArrayList<AllStudentModel> = gson.fromJson(json, type)
         return ArrayList(intList)
     }
+    fun setFinishLesson(value: Int){
+        val intArray = getFinishLesson()?.toMutableList() ?: mutableListOf()
+        if (intArray.filter { it == value }.firstOrNull() == null) {
+            intArray.add(value)
+            val json = gson.toJson(intArray)
+            editor.putString(Constants.lesson, json)
+            editor.apply()
+        }
+    }
+
+    fun checkFinishLesson(value: Int): Boolean {
+        val intArray = getFinishLesson()?.toMutableList() ?: mutableListOf()
+        return intArray.firstOrNull { it == value } != null
+    }
+    // Saqlangan arrayni olish funksiyasi
+    fun getFinishLesson(): ArrayList<Int>? {
+        val json = sharedPreferences.getString(Constants.lesson, null) ?: return null
+        val type = object : TypeToken<ArrayList<Int>>() {}.type
+        val intList: ArrayList<Int> = gson.fromJson(json, type)
+        return ArrayList(intList)
+    }
 }
